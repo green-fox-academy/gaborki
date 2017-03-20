@@ -1,0 +1,23 @@
+body {
+  font-family:serif;
+  margin-left: 20px;
+}
+h1 {
+  color: blue;
+  font-size: 30px;
+}
+h3 {
+  color: gold;
+}
+.apple {
+  color: red;
+}
+span {
+  color: blue;
+}
+ul > li {
+  list-style-type: square;
+}
+.disc > li {
+  list-style-type: disc;
+}

@@ -1,0 +1,28 @@
+body {
+  width: 410px;
+  margin: 20px 35%;
+}
+
+div {
+border-style: solid;
+border-width: 15px;
+border-color: rgb(70,136,241);
+text-align: center;
+font-family: sans-serif;
+padding: 30px;
+color: white;
+font-size: 32px;
+margin: 15px;
+}
+
+p {
+padding: 15px 0px;
+}
+
+.north {
+  background-color: rgb(228,119,120);
+}
+
+.south {
+  background-color: rgb(242,238,109);
+}

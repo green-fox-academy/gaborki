@@ -1,0 +1,97 @@
+body {
+
+  width: 760px;
+  background: url(anakin.png) top;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: auto;
+}
+
+header {
+  font-family: 'Abril Fatface';
+  font-weight: bold;
+  color: #222;
+  font-size: 2em;
+  line-height: 20px;
+  margin-top: 240px;
+  margin-bottom:120px;
+  text-align: left;
+}
+
+h3 {
+  text-transform: uppercase;
+  margin: 50px 0;
+  font-size: 26px;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 22px;
+  margin-bottom: 0px;
+}
+
+p, h3, h4, ul{
+  font-family: 'Josefin Sans';
+  line-height: 1.5em;
+}
+
+h5 {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-size: 16px;
+  margin-top: 0;
+}
+
+div {
+  font-size: 18px;
+  margin: 0 30px;
+}
+
+p, ul{
+  font-size: 16px;
+  font-weight: lighter;
+  margin-bottom: 40px;
+}
+
+.intro {
+  font-size: 20px;
+  font-weight: lighter;
+  margin: 0;
+}
+
+hr {
+  border: solid 2px;
+}
+
+blockquote p{
+  color: white;
+  font-family: 'Abril Fatface';
+  font-size:52px;
+  margin:0;
+  padding: 0 0 0 40px;
+  line-height: 1.1em;
+
+}
+
+blockquote {
+  background-color: rgb(69,68,68);
+  margin:0;
+  text-align: left;
+  padding-bottom: 30px;
+  font-size:52px;
+}
+
+blockquote:before {
+  font-size: 3em;
+  content: "\201C";
+  margin: 0;
+  text-align: left;
+  line-height: 0.1em;
+  color: white;
+  vertical-align: -0.45em;
+}
+
+li {
+  list-style-type: square;
+}

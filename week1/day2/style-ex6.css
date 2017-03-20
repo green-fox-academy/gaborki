@@ -1,0 +1,15 @@
+body {
+margin-right: 60%;
+margin-left: 20px;
+text-align:left;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+p {
+  font-size: 18px;
+  border-left: black solid 3px;
+  padding:0 20px;
+}

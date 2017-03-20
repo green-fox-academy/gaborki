@@ -1,0 +1,78 @@
+body{
+  color: rgba(0, 0, 0, 0.8);
+  font-family: cursive;
+  margin: 0 auto;
+
+}
+
+img {
+  width: 100%;
+  margin: 0 auto;
+}
+
+
+article {
+  width: 740px;
+  /*
+  width have to be set in order for
+  the auto to work in the line below
+  */
+  font-family: 'Merriweather', serif;
+  letter-spacing: 0.22px;
+  margin: 0 auto;
+
+
+
+}
+
+h1, h2 {
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 40px;
+}
+
+h2 {
+  letter-spacing: 0.49px;
+  font-size: 25px;
+  color: rgba(0, 0, 0, 0.439);
+  font-weight: 300;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+h3 {
+  margin:0 auto;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+p {
+  font-weight: 150;
+  font-size: 21px;
+  font-family: serif;
+  letter-spacing: -0.072px;
+  line-height: 28.44px;
+  text-align: left;
+  margin-top: 21px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+a {
+  font-weight: bold;
+  color: rgba(0, 0, 0, 1);
+  font-weight: 400;
+}
+
+.journalist {
+  font-weight: bold;
+}

@@ -1,0 +1,16 @@
+body{
+  margin: 10px 35%;
+}
+
+
+p {
+  font-size: 36px;
+  background-color: rgb(28, 145, 160);
+  text-align: left top;
+  color: rgb(7, 84, 100);
+  border: 6px;
+  padding: 15px 60px 80px 10px;
+  width: 280px;
+  border: solid 5px rgb(128, 205,150);
+
+}
