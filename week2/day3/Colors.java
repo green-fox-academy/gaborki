@@ -20,19 +20,21 @@ public class Colors {
             Scanner input = new Scanner(System.in);
             System.out.println("Give me a main color please: ");
             String mainColor = input.nextLine();
-            color[i][0] = mainColor.toUpperCase() + ":";
+            color[i][0] = mainColor.toUpperCase();
 
             for (int j = 1; j < numOfMaxShades; j++) {
                 System.out.println("Give me a shade of the color: ");
                 Scanner shades = new Scanner(System.in);
                 String shade = shades.nextLine();
-                color[i][j] = shade + ", ";
+                color[i][j] = shade;
             }
         }
 
         for (int n = 0; n < 3; n++) {
             for (int g = 0; g < 5; g++) {
-                System.out.print(color[n][g] + " ");
+                if (color[n][g] != "") {
+                    System.out.print(color[n][g] + " ");
+                }
             }
             System.out.println();
         }
