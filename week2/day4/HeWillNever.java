@@ -21,8 +21,11 @@ public class HeWillNever {
 
         for (int i = 0; i < notSoCrypticMessage.length; i++) {
             for (int y : hmap.keySet()) {
-                if (notSoCrypticMessage[i] == hmap.key(y)) {
+                if (notSoCrypticMessage[i] == y) {
                     out = out + hmap.get(y);
+                        if(y != 11) {
+                            out = out + " ";
+                        }
                 }
             }
         }
