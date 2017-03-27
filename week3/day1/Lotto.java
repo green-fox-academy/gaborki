@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 /**
  * Created by Gabor on 25/03/2017.
@@ -21,7 +21,7 @@ public class Lotto {
     try {
       List<String> mytext = Files.readAllLines(numbers);
       List<String> list = new ArrayList<>();
-      int occur = 0;
+      int occur = 1;
       for (String line : mytext) {
         String[] textArray = line.split(";");
         int sizeTo = textArray.length;
@@ -39,7 +39,7 @@ public class Lotto {
             occur = occur + 1;
           }
         }
-        occur = 0;
+        occur = 1;
       }
 
       List<Integer> toSort = new ArrayList<>();
@@ -74,9 +74,5 @@ public class Lotto {
   }
 }
 
-
-//
-//
-//textArray[line] = line.substring(sizeTo, sizeFrom);
 
 
