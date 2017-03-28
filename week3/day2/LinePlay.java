@@ -15,9 +15,9 @@ public class LinePlay{
 
     for (int x = 0; x <= 30; x++) {
       graphics.setColor(Color.GREEN);
-      graphics.drawLine( 0,0 + x * 10, 300 - x * 10, 0);
+      graphics.drawLine( 0,0 + x * 10, 0 + x * 10, 300);
       graphics.setColor(Color.MAGENTA);
-      graphics.drawLine(0 + x * 10, 300, 300, 300 - x * 10);
+      graphics.drawLine(0 + x * 10, 0, 300, 0 + x *10);
 
 
     }
