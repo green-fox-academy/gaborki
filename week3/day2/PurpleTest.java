@@ -1,5 +1,5 @@
 /**
- * Created by Gabor on 27/03/2017.
+ * Created by Gabor on 28/03/2017.
  */
 import javax.swing.*;
 
@@ -7,16 +7,19 @@ import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class Diagonals {
+public class PurpleTest {
 
   public static void mainDraw(Graphics graphics){
-    // draw the canvas' diagonals in green.
 
-    graphics.setColor(Color.GREEN);
-    graphics.drawLine(0,0,300,300);
+    graphics.setColor(Color.MAGENTA);
+    int x = 10;
+    int dimension = x;
 
-    graphics.setColor(Color.GREEN);
-    graphics.drawLine(0,300,300,0);
+    for (x = 10; x < 200l; x += 10) {
+      graphics.fillRect(x, x, dimension, dimension);
+    }
+    // reproduce this:
+    // [https://github.com/greenfox-academy/teaching-materials/blob/master/exercises/drawing/purple-steps/r3.png]
 
 
 
@@ -25,7 +28,7 @@ public class Diagonals {
   //    Don't touch the code below
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
-    jFrame.setSize(new Dimension(320, 350));
+    jFrame.setSize(new Dimension(300, 300));
     jFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
     jFrame.add(new ImagePanel());
     jFrame.setLocationRelativeTo(null);

@@ -1,26 +1,24 @@
 /**
- * Created by Gabor on 27/03/2017.
+ * Created by Gabor on 28/03/2017.
  */
+
+import java.awt.Graphics;
 import javax.swing.*;
 
 import java.awt.*;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class Diagonals {
+public class CenteredSquare {
 
-  public static void mainDraw(Graphics graphics){
-    // draw the canvas' diagonals in green.
-
-    graphics.setColor(Color.GREEN);
-    graphics.drawLine(0,0,300,300);
+  public static void mainDraw(Graphics graphics) {
 
     graphics.setColor(Color.GREEN);
-    graphics.drawLine(0,300,300,0);
-
-
-
+    graphics.fillRect(145, 145, 10, 10);
   }
+
 
   //    Don't touch the code below
   public static void main(String[] args) {
