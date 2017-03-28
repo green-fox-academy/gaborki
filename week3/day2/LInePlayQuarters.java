@@ -16,9 +16,13 @@ public class LinePlayQuarters {
       graphics.setColor(Color.GREEN);
       graphics.drawLine(0, 0 + x * 5, 0 + x * 5, sizeOfWindow/2);
       graphics.drawLine(sizeOfWindow/2, 0 + x * 5, sizeOfWindow/2 + x * 5, sizeOfWindow/2);
+      graphics.drawLine(sizeOfWindow/2, sizeOfWindow/2 + x * 5, sizeOfWindow/2 + x * 5, sizeOfWindow);
+      graphics.drawLine(0, sizeOfWindow/2 + x * 5, 0 + x * 5, sizeOfWindow);
       graphics.setColor(Color.MAGENTA);
       graphics.drawLine(0 + x * 5, 0, sizeOfWindow/2, 0 + x * 5 );
       graphics.drawLine(sizeOfWindow/2 + x * 5, 0, sizeOfWindow, 0 + x * 5 );
+      graphics.drawLine(sizeOfWindow, sizeOfWindow/2 + x * 5, sizeOfWindow/2 + x * 5, sizeOfWindow/2);
+      graphics.drawLine(sizeOfWindow/2, sizeOfWindow/2 + x * 5, 0 + x * 5, sizeOfWindow/2);
 
 
     }
