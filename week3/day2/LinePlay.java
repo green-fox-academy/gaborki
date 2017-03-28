@@ -13,9 +13,6 @@ public class LinePlay{
   public static void mainDraw(Graphics graphics){
 
 
-
-    int d = 10;
-
     for (int x = 0; x <= 30; x++) {
       graphics.setColor(Color.GREEN);
       graphics.drawLine( 0,0 + x * 10, 300 - x * 10, 0);
