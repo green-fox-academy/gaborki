@@ -10,19 +10,13 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class Diagonals {
 
   public static void mainDraw(Graphics graphics){
-    // draw the canvas' diagonals in green.
 
     graphics.setColor(Color.GREEN);
     graphics.drawLine(0,0,300,300);
 
     graphics.setColor(Color.GREEN);
     graphics.drawLine(0,300,300,0);
-
-
-
   }
-
-  //    Don't touch the code below
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
     jFrame.setSize(new Dimension(320, 350));

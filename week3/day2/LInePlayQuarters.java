@@ -13,27 +13,20 @@ public class LinePlayQuarters {
 
     int sizeOfWindow = 300;
     for (int x = 0; x <= 30; x++) {
+      int gap = x * 5;
+      int half = sizeOfWindow/2;
       graphics.setColor(Color.GREEN);
-      graphics.drawLine(0, 0 + x * 5, 0 + x * 5, sizeOfWindow/2);
-      graphics.drawLine(sizeOfWindow/2, 0 + x * 5, sizeOfWindow/2 + x * 5, sizeOfWindow/2);
-      graphics.drawLine(sizeOfWindow/2, sizeOfWindow/2 + x * 5, sizeOfWindow/2 + x * 5, sizeOfWindow);
-      graphics.drawLine(0, sizeOfWindow/2 + x * 5, 0 + x * 5, sizeOfWindow);
+      graphics.drawLine(0, 0 + gap, 0 + gap, half);
+      graphics.drawLine(half, 0 + gap, half + gap, half);
+      graphics.drawLine(half, half + gap, half + gap, sizeOfWindow);
+      graphics.drawLine(0, half + gap, 0 + gap, sizeOfWindow);
       graphics.setColor(Color.MAGENTA);
-      graphics.drawLine(0 + x * 5, 0, sizeOfWindow/2, 0 + x * 5 );
-      graphics.drawLine(sizeOfWindow/2 + x * 5, 0, sizeOfWindow, 0 + x * 5 );
-      graphics.drawLine(sizeOfWindow, sizeOfWindow/2 + x * 5, sizeOfWindow/2 + x * 5, sizeOfWindow/2);
-      graphics.drawLine(sizeOfWindow/2, sizeOfWindow/2 + x * 5, 0 + x * 5, sizeOfWindow/2);
-
-
+      graphics.drawLine(0 + gap, 0, half, 0 + gap );
+      graphics.drawLine(half + gap, 0, sizeOfWindow, 0 + gap );
+      graphics.drawLine(sizeOfWindow, half + gap, half + gap, half);
+      graphics.drawLine(half, half + gap, 0 + gap, half);
     }
-
-    // divide the canvas into 4 parts
-    // and repeat this pattern in each quarter:
-    // [https://github.com/greenfox-academy/teaching-materials/blob/master/exercises/drawing/line-play/r1.png]
-
   }
-
-  //    Don't touch the code below
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
     jFrame.setSize(new Dimension(320, 350));

@@ -23,11 +23,6 @@ public class FourRectangles {
     graphics.setColor(Color.BLUE);
     rectangle(110, 160,30,100, graphics);
 
-
-    // draw four different size and color rectangles.
-
-
-
   }
 
   private static void rectangle(int x, int y, int w, int h, Graphics g) {
@@ -35,7 +30,6 @@ public class FourRectangles {
     g.fillRect(x, y, w, h);
   }
 
-  //    Don't touch the code below
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
     jFrame.setSize(new Dimension(320, 350));

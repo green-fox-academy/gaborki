@@ -22,15 +22,7 @@ public class PurpleSteps3D {
       y += 10;
 
     }
-    ;
-    // reproduce this:
-    // [https://github.com/greenfox-academy/teaching-materials/blob/master/exercises/drawing/purple-steps-3d/r4.png]
-
-
-
   }
-
-  //    Don't touch the code below
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
     jFrame.setSize(new Dimension(300, 300));

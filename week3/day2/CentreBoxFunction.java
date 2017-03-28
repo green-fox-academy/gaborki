@@ -16,11 +16,6 @@ public class CentreBoxFunction {
       square(xx, graphics);
       xx += 30;
     }
-    // create a square drawing function that takes 1 parameter:
-    // the square size
-    // and draws a square of that size to the center of the canvas.
-    // draw 3 squares with that function.
-
   }
 
   private static void square(int x, Graphics g) {
@@ -28,7 +23,6 @@ public class CentreBoxFunction {
     g.drawRect(150 - x / 2, 150 - x / 2, x, x);
   }
 
-  //    Don't touch the code below
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
     jFrame.setSize(new Dimension(300, 300));

@@ -14,15 +14,8 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
       graphics.setColor(Color.RED);
       graphics.drawLine(0, 150, 300, 150);
-
-      //  draw a red horizontal line to the canvas' middle.
-      //  draw a green vertical line to the canvas' middle.
-
-
-
     }
 
-    //    Don't touch the code below
     public static void main(String[] args) {
       JFrame jFrame = new JFrame("Drawing");
       jFrame.setSize(new Dimension(300, 300));

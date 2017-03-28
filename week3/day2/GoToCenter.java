@@ -16,7 +16,6 @@ public class GoToCenter {
     centre(100, 50, graphics);
     centre(210, 200, graphics);
 
-
   }
 
   private static void centre(int x, int y, Graphics g) {
@@ -26,13 +25,6 @@ public class GoToCenter {
 
   }
 
-  // create a line drawing function that takes 2 parameters:
-  // the x and y coordinates of the line's starting point
-  // and draws a line from that point to the center of the canvas.
-  // draw 3 lines with that function.
-
-
-  //    Don't touch the code below
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
     jFrame.setSize(new Dimension(300, 300));

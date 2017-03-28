@@ -10,7 +10,6 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class ColoredBox{
 
   public static void mainDraw(Graphics graphics){
-    // draw a box that has different colored lines on each edge.
 
     graphics.setColor(Color.RED);
     graphics.drawLine(25, 25, 125, 25);
@@ -27,7 +26,6 @@ public class ColoredBox{
 
   }
 
-  //    Don't touch the code below
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
     jFrame.setSize(new Dimension(300, 300));

@@ -18,14 +18,7 @@ public class PurpleTest {
     for (x = 10; x < 200l; x += 10) {
       graphics.fillRect(x, x, dimension, dimension);
     }
-    // reproduce this:
-    // [https://github.com/greenfox-academy/teaching-materials/blob/master/exercises/drawing/purple-steps/r3.png]
-
-
-
   }
-
-  //    Don't touch the code below
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
     jFrame.setSize(new Dimension(300, 300));

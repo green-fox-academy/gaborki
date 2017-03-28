@@ -29,8 +29,6 @@ public class FunctionCenterJava {
     g.setColor(Color.BLUE);
     g.drawLine(x, y, 160,160);
   }
-
-  //    Don't touch the code below
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawng");
     jFrame.setSize(new Dimension(321, 350));

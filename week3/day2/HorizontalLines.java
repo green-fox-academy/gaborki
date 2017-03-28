@@ -16,11 +16,6 @@ public class HorizontalLines {
     for (int i = 0; i < 3; i++) {
       horizon(40, xx, graphics);
       xx += 40;
-      // create a line drawing function that takes 2 parameters:
-      // the x and y coordinates of the line's starting point
-      // and draws a 50 long horizontal line from that point.
-      // draw 3 lines with that function.
-
     }
   }
 
@@ -31,7 +26,6 @@ public class HorizontalLines {
 
   }
 
-  //    Don't touch the code below
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
     jFrame.setSize(new Dimension(300, 300));

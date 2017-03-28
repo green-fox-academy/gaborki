@@ -3,7 +3,6 @@
  */
 
 import java.awt.Graphics;
-import javax.swing.*;
 
 import java.awt.*;
 import javax.swing.JFrame;
@@ -20,7 +19,6 @@ public class CenteredSquare {
   }
 
 
-  //    Don't touch the code below
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
     jFrame.setSize(new Dimension(320, 350));

@@ -23,11 +23,9 @@ public class CheckerBoard {
         }
       }
     }
-    // fill the canvas with a checkerboard pattern.
 
   }
 
-  //    Don't touch the code below
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
     jFrame.setSize(new Dimension(300, 300));

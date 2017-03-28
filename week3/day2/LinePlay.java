@@ -18,17 +18,9 @@ public class LinePlay{
       graphics.drawLine( 0,0 + x * 10, 0 + x * 10, 300);
       graphics.setColor(Color.MAGENTA);
       graphics.drawLine(0 + x * 10, 0, 300, 0 + x *10);
-
-
     }
-    // reproduce this:
-    // [https://github.com/greenfox-academy/teaching-materials/blob/master/exercises/drawing/line-play/r1.png]
-
-
-
   }
 
-  //    Don't touch the code below
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
     jFrame.setSize(new Dimension(300, 300));
