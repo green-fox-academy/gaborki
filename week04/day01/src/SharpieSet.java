@@ -6,7 +6,6 @@ import java.util.ArrayList;
 public class SharpieSet {
 
   ArrayList<Sharpie> set;
-  static int count;
 
   public SharpieSet() {
     set = new ArrayList<>();
@@ -14,25 +13,23 @@ public class SharpieSet {
   public void add(Sharpie sharpie) {
     set.add(sharpie);
   }
-  public void countUsable() {
-    for (int i = 0; i < set.size(); i++) {
-      if (set.get(i).inkAmount > 0) {
+  public int countUsable() {
+    int count = 0;
+    for (Sharpie s : set)
+      if (s.isUseable()) {
         count++;
       }
+      return count;
     }
-  }
   public void removeTrash() {
-    for (int j = 0; j < set.size(); j++) {
-      if (set.get(j).inkAmount == 0) {
+    for (int j = 0; j < set.size();) {
+      if (!set.get(j).isUseable()) {
         set.remove(j);
       }
+      else{
+        j++;
+      }
     }
-  }
-  @Override
-  public String toString() {
-    return "SharpieSet{" +
-        "set=" + set +
-        '}';
   }
   public static void main(String[] argc) {
 
@@ -45,9 +42,5 @@ public class SharpieSet {
     sharp.add(red);
     sharp.add(blue);
     sharp.add(green);
-
-    sharp.removeTrash();
-
-    System.out.println(sharp.toString());
   }
 }

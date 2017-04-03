@@ -8,17 +8,13 @@ public class Sharpie {
 
   public Sharpie( String color, float width) {
     this.inkAmount = 100;
+    this.color = color;
+    this.width = width;
   }
-
+  boolean isUseable() {
+    return this.inkAmount > 0;
+  }
   public void use() {
     this.inkAmount -= 2;
-  }
-  @Override
-  public String toString() {
-    return "Sharpie{" +
-        "color='" + color + '\'' +
-        ", width=" + width +
-        ", inkAmount=" + inkAmount +
-        '}';
   }
 }
