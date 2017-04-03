@@ -14,7 +14,7 @@ public class TriangleFractal {
 
   public static void mainDraw(Graphics graphic) {
 
-    triangle(6, 0, 0, 600, graphic);
+    triangle(9, 0, 0, 800, graphic);
   }
 
   private static void triangle(int depth, int startPointX, int startPointY, int size, Graphics g) {
