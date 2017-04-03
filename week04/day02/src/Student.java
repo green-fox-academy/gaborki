@@ -27,7 +27,9 @@ public class Student extends Person {
   }
 
   public Student(String name, int age, String gender, String prvOrg) {
+    super(name, age, gender);
     this.skippedDays = 0;
+    this.previousOrganization = prvOrg;
   }
 }
 
