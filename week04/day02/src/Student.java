@@ -7,13 +7,13 @@ public class Student extends Person {
   int skippedDays;
 
   public void getGoal() {
-    System.out.println("Be a junior software developer");
+    System.out.println("My goal is: Be a junior software developer!");
   }
 
   public void introduce() {
     System.out.println(
-        "Hi may name is " + this.name + " a" + this.age + " old" + this.gender + " from "
-            + previousOrganization + " who skipped" + skippedDays + " from the course already");
+        "Hi may name is " + this.name + " a " + this.age + " old" + this.gender + " from "
+            + previousOrganization + " who skipped " + skippedDays + " days from the course already");
   }
 
   public void skipDays(int numberOfDays) {

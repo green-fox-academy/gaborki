@@ -8,7 +8,7 @@ public class Person {
   int age;
 
   public void introduce() {
-    System.out.println("Hi, I'm " + this.name + " a" + this.age + " years old, " + this.gender);
+    System.out.println("Hi, I'm " + this.name + " a " + this.age + " years old, " + this.gender);
   }
 
   public void getGoal() {
