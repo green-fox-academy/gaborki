@@ -4,6 +4,7 @@ import java.util.ArrayList;
  * Created by Gabor on 03/04/2017.
  */
 public class GreenFoxMain {
+
   public static void main(String[] args) {
     ArrayList<Person> people = new ArrayList<>();
 
@@ -23,7 +24,6 @@ public class GreenFoxMain {
     people.add(sponsor);
     Sponsor elon = new Sponsor("Elon Musk", 46, "male", "SpaceX");
     people.add(elon);
-
     student.skipDays(3);
 
     for (int i = 0; i < 5; i++) {
@@ -37,6 +37,13 @@ public class GreenFoxMain {
       person.introduce();
       person.getGoal();
     }
-  }
 
+    LagopusClass badass = new LagopusClass("BADA55");
+    badass.addStudent(student);
+    badass.addStudent(john);
+    badass.addMentor(mentor);
+    badass.addMentor(gandhi);
+    badass.info();
+
+  }
 }
