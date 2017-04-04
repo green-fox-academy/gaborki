@@ -13,26 +13,26 @@ public class Aircraft {
     this.ammoStore = 0;
     return this.baseDamage * this.ammoStore;
   }
-
+// TODO move refill to AircraftCarrier, ammoInventory to be deducted at each refill
   public void refill(int ammoToRefill) {
     if (maxAmmo - ammoStore > ammoToRefill) {
       this.ammoStore =+ ammoToRefill;
     } else {
-      this.ammoStore = maxAmmo;
+      this.ammoStore = this.maxAmmo;
     }
   }
 
-  public String getType(Aircraft aircraft) {
-    if (aircraft instanceof F16) {
+  public String getType() {
+    if (this instanceof F16) {
       return "F16";
     } else {
       return "F35";
     }
   }
 
-  public String getStatus(Aircraft aircraft) {
-    return "Type: " + getType(aircraft) + ", Ammo: " + aircraft.ammoStore + ", Base Damage: "
-        + aircraft.baseDamage + ", Alldamage: " + aircraft.ammoStore * aircraft.baseDamage;
+  public String getStatus() {
+    return "Type: " + this.getType() + ", Ammo: " + this.ammoStore + ", Base Damage: "
+        + this.baseDamage + ", Alldamage: " + this.ammoStore * this.baseDamage;
   }
 
   public int getAmmoStore(){
