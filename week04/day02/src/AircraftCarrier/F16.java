@@ -11,4 +11,3 @@ package AircraftCarrier;
       this.baseDamage = 30;
     }
   }
-}

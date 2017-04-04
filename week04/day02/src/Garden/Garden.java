@@ -11,7 +11,8 @@ public class Garden {
   ArrayList<Flower> flowers;
   int howManyToWater;
   String name = "My Garden";
-  public int howManyNeedsWater(){
+
+  public int howManyNeedsWater() {
     for (int i = 0; i < trees.size(); i++) {
       if (trees.get(i).needsWatering()) {
         howManyToWater++;
@@ -24,34 +25,39 @@ public class Garden {
     }
     return howManyToWater;
   }
-  public void waterGarden(int amount){
+
+  public void waterGarden(int amount) {
     howManyNeedsWater();
     System.out.println("Watering with " + amount);
     System.out.println();
     for (int i = 0; i < trees.size(); i++) {
       if (trees.get(i).needsWatering()) {
-        trees.get(i).watering(amount/howManyToWater);
+        trees.get(i).watering(amount / howManyToWater);
       }
     }
     for (int j = 0; j < flowers.size(); j++) {
       if (flowers.get(j).needsWatering()) {
-        flowers.get(j).watering(amount/howManyToWater);
+        flowers.get(j).watering(amount / howManyToWater);
       }
     }
     this.howManyToWater = 0;
     stateOfGarden();
   }
-  public Garden(){
+
+  public Garden() {
     trees = new ArrayList<>();
     flowers = new ArrayList<>();
   }
-  public void addFlower(Flower flower){
+
+  public void addFlower(Flower flower) {
     this.flowers.add(flower);
   }
-  public void addTree(Tree tree){
+
+  public void addTree(Tree tree) {
     this.trees.add(tree);
   }
-  public void stateOfGarden(){
+
+  public void stateOfGarden() {
     for (int i = 0; i < this.flowers.size(); i++) {
       System.out.print("The " + this.flowers.get(i).color + " flower");
       if (this.flowers.get(i).needsWatering()) {
@@ -60,14 +66,13 @@ public class Garden {
         System.out.println(" doesn't need watering");
       }
     }
-      for (int i = 0; i < this.trees.size(); i++){
-        System.out.print("The " + this.trees.get(i).color + " tree");
-        if (this.trees.get(i).needsWatering()){
-          System.out.println(" needs watering!");
-        }
-        else {
-          System.out.println(" doesn't need watering");
-        }
+    for (int i = 0; i < this.trees.size(); i++) {
+      System.out.print("The " + this.trees.get(i).color + " tree");
+      if (this.trees.get(i).needsWatering()) {
+        System.out.println(" needs watering!");
+      } else {
+        System.out.println(" doesn't need watering");
+      }
     }
     System.out.println();
   }

@@ -16,13 +16,13 @@ public class Aircraft {
 
   public void refill(int ammoToRefill) {
     if (maxAmmo - ammoStore > ammoToRefill) {
-      this.ammoStore = +ammoToRefill;
+      this.ammoStore =+ ammoToRefill;
     } else {
       this.ammoStore = maxAmmo;
     }
   }
 
-  public String get_type(Aircraft aircraft) {
+  public String getType(Aircraft aircraft) {
     if (aircraft instanceof F16) {
       return "F16";
     } else {
@@ -30,8 +30,20 @@ public class Aircraft {
     }
   }
 
-  public String get_status(Aircraft aircraft) {
-    return "Type: " + get_type(aircraft) + ", Ammo: " + aircraft.ammoStore + ", Base Damage: "
+  public String getStatus(Aircraft aircraft) {
+    return "Type: " + getType(aircraft) + ", Ammo: " + aircraft.ammoStore + ", Base Damage: "
         + aircraft.baseDamage + ", Alldamage: " + aircraft.ammoStore * aircraft.baseDamage;
+  }
+
+  public int getAmmoStore(){
+    return this.ammoStore;
+  }
+
+  public void setAmmoStore(int ammoStore) {
+    this.ammoStore = ammoStore;
+  }
+
+  public int getMaxAmmo(){
+    return this.maxAmmo;
   }
 }
