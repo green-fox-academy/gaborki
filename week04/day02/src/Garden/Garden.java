@@ -11,7 +11,6 @@ public class Garden {
   ArrayList<Flower> flowers;
   int howManyToWater;
   String name = "My Garden";
-
   public int howManyNeedsWater(){
     for (int i = 0; i < trees.size(); i++) {
       if (trees.get(i).needsWatering()) {
@@ -25,7 +24,6 @@ public class Garden {
     }
     return howManyToWater;
   }
-
   public void waterGarden(int amount){
     howManyNeedsWater();
     System.out.println("Watering with " + amount);
@@ -42,20 +40,16 @@ public class Garden {
     }
     stateOfGarden();
   }
-
   public Garden(){
     trees = new ArrayList<>();
     flowers = new ArrayList<>();
   }
-
   public void addFlower(Flower flower){
     this.flowers.add(flower);
   }
-
   public void addTree(Tree tree){
     this.trees.add(tree);
   }
-
   public void stateOfGarden(){
     for (int i = 0; i < this.flowers.size(); i++) {
       System.out.print("The " + this.flowers.get(i).color + " flower");
@@ -73,9 +67,7 @@ public class Garden {
         else {
           System.out.println(" doesn't need watering");
         }
-
     }
     System.out.println();
   }
-
 }
