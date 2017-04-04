@@ -12,8 +12,8 @@ public class Flower extends Tree {
       return true;
     }
   }
-  public void watering(int water){
-    this.amountOfWater += (int)(water*0.75);
+  public void watering(double water){
+    this.amountOfWater += (water*0.75);
   }
   public Flower(String color){
     super(color);

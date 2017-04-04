@@ -35,9 +35,10 @@ public class Garden {
     }
     for (int j = 0; j < flowers.size(); j++) {
       if (flowers.get(j).needsWatering()) {
-        flowers.get(j).watering(amount/howManyNeedsWater());
+        flowers.get(j).watering(amount/howManyToWater);
       }
     }
+    this.howManyToWater = 0;
     stateOfGarden();
   }
   public Garden(){

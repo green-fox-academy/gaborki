@@ -14,8 +14,8 @@ public class Tree {
       return true;
     }
   }
-  public void watering(int water){
-    this.amountOfWater += water*0.4;
+  public void watering(double water){
+    this.amountOfWater += (water*0.4);
   }
   public Tree(String color){
     this.color = color;
