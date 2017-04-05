@@ -1,4 +1,4 @@
-package Anagram;
+package AnagramTest;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

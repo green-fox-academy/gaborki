@@ -1,6 +1,4 @@
-package Anagram;
-
-import java.util.Scanner;
+package AnagramTest;
 
 /**
  * Created by Gabor on 05/04/2017.
@@ -34,4 +32,3 @@ public class AnagramApp {
       }
     }
   }
-
