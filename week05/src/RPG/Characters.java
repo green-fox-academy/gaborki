@@ -5,10 +5,4 @@ package RPG;
  */
 public class Characters extends GameObjects {
 
-  double HP;
-  double DP;
-  double SP;
-
-
-
 }
