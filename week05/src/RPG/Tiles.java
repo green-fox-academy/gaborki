@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -16,21 +17,25 @@ public class Tiles extends GameObjects {
 
   int tileSize = 72;
   String[][] board = new String[10][10];
+  List<PositionedImage> canvas = new ArrayList<>();
 
-  public void drawTile(Graphics graphics) {
+
+  public List<PositionedImage> drawTile() {
+    canvas = new ArrayList<>();
     for (int i = 0; i < 10; i++) {
       for (int j = 0; j < 10; j++) {
         if (isWall(i, j)) {
           PositionedImage floor = new PositionedImage("src/RPG/wall.png", j * tileSize,
               i * tileSize);
-          floor.draw(graphics);
+          canvas.add(floor);
         } else {
           PositionedImage floor = new PositionedImage("src/RPG/floor.png", j * tileSize,
               i * tileSize);
-          floor.draw(graphics);
+          canvas.add(floor);
         }
       }
     }
+    return canvas;
   }
 
   public void readBoard() {
