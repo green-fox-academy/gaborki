@@ -28,6 +28,11 @@ public class AircraftCarrier {
     return allAmmo;
   }
 
+  int deductAmmo(int ammoToDeduct){
+    this.ammoInventory -= ammoToDeduct;
+    return this.ammoInventory;
+  }
+
   public ArrayList<F35> getAllF35() {
     ArrayList<F35> allF35 = new ArrayList<>();
     for (int i = 0; i < airforce.size(); i++) {
@@ -48,17 +53,17 @@ public class AircraftCarrier {
     return allF16;
   }
 
-  public void fillThem(ArrayList<Aircraft> craft) {
-    for (int i = 0; i < craft.size(); i++) {
-      if (ammoInventory <= 0 || ammoInventory < craft.get(i).getMaxAmmo()) {
+  public void fillThem(ArrayList<Aircraft> airForce) {
+    for (int i = 0; i < airforce.size(); i++) {
+      if (ammoInventory < airForce.get(i).getMaxAmmo()) {
         System.out.println("No more Ammo mate!");
-        i = craft.size();
+        i = airForce.size();
       } else {
-        craft.get(i).setAmmoStore(craft.get(i).getMaxAmmo());
-        if (craft.get(i) instanceof F16) {
-          ammoInventory -= 8;
+        airForce.get(i).setAmmoStore(airForce.get(i).getMaxAmmo());
+        if (airForce.get(i) instanceof F16) {
+          deductAmmo(8);
         } else {
-          ammoInventory -= 12;
+          deductAmmo(12);
         }
       }
     }
@@ -69,24 +74,23 @@ public class AircraftCarrier {
     getAllF35();
     ArrayList<Aircraft> allF16 = new ArrayList<>();
     getAllF16();
-    if (this.ammoInventory > this.ammoForAll()) {
+    if (ammoInventory > this.ammoForAll()) {
       for (int i = 0; i < airforce.size(); i++) {
-        airforce.get(i).setAmmoStore(airforce.get(i).maxAmmo);
+        airforce.get(i).setAmmoStore(airforce.get(i).getMaxAmmo());
       }
+    } else if (ammoInventory >= 12) {
+        fillThem(allF35);
     } else {
-      fillThem(allF35);
-      if (this.ammoInventory >= 8) {
         fillThem(allF16);
       }
     }
-  }
 
   public void fight(AircraftCarrier otherCarrier) {
   }
 
   public void getStatus() {
     System.out.println(
-        "Aircrafts count: " + airforce.size() + ", Ammo Storage: " + this.ammoInventory + " Total Damage: ???");
+        "Aircrafts count: " + airforce.size() + ", Ammo Storage: " + ammoInventory + " Total Damage: ???");
     System.out.println("Aircrafts: ");
     for (int i = 0; i < airforce.size();i++) {
       System.out.println(airforce.get(i).getStatus());

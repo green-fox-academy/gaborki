@@ -1,5 +1,7 @@
 package AircraftCarrier;
 
+import javax.xml.transform.sax.SAXSource;
+
 /**
  * Created by Gabor on 04/04/2017.
  */
@@ -26,7 +28,8 @@ public class AircraftCarrierApp {
 
     System.out.println(tepsi.ammoForAll());
 
-    hornet.refill(100);
+    tepsi.fill();
+    System.out.println(tepsi.ammoInventory);
 
     System.out.println(tepsi.ammoForAll());
     tepsi.getStatus();
