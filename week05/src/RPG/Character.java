@@ -3,19 +3,21 @@ package RPG;
 /**
  * Created by Gabor on 10/04/2017.
  */
-public class Characters extends GameObject {
+public class Character extends GameObject {
+
   int tileSize = 72;
   int random[] = new int[2];
 
 
-  public Characters() {
+  public Character() {
 
   }
 
   public void moveUp() {
-      this.posY -= tileSize;
-      setImage(ImageLoader.getInstance().HERO_UP);
-    }
+    this.posY -= tileSize;
+    setImage(ImageLoader.getInstance().HERO_UP);
+  }
+
   public void moveDown() {
     this.posY += tileSize;
     setImage(ImageLoader.getInstance().HERO_DOWN);
@@ -31,11 +33,16 @@ public class Characters extends GameObject {
     setImage(ImageLoader.getInstance().HERO_RIGHT);
   }
 
-  public int[] randomPosition(){
-    random[0] = (int)(Math.random()*10) * tileSize;
-    random[1] = (int)(Math.random()*10) * tileSize;
-    return random;
-  }
-
+  public int[] randomPosition() {
+    Tiles.readBoard();
+    random[0] = random[1] = -1;
+    while (isWall(random[0], random[1])) {
+      random[0] = (int) (Math.random() * 10);
+      random[1] = (int) (Math.random() * 10);
+    }
+    random[0] *= tileSize;
+    random[1] *= tileSize;
+      return random;
+    }
   }
 

@@ -15,7 +15,7 @@ public class Board extends JComponent implements KeyListener {
   int currentPosX;
   int currentPosY;
   Tiles tile;
-  Monsters monsterOne = new Monsters(ImageLoader.getInstance().MONSTER);
+  Monster monsterOne = new Monster(ImageLoader.getInstance().MONSTER);
   Hero arpiG = new Hero(ImageLoader.getInstance().HERO_DOWN, currentPosX, currentPosY);
   int x;
   int y;

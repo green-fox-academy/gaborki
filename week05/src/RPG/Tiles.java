@@ -14,7 +14,7 @@ import java.util.List;
 public class Tiles extends GameObject {
 
   int tileSize = 72;
-  String[][] board = new String[10][10];
+  static String[][] board = new String[10][10];
   List<PositionedImage> canvas = new ArrayList<>();
 
   public List<PositionedImage> drawTile(Graphics graphics) {
@@ -34,7 +34,7 @@ public class Tiles extends GameObject {
     return canvas;
   }
 
-  public void readBoard() {
+  public static void readBoard() {
     try {
       Path path = Paths.get("src/RPG/board.csv");
       List<String> lines = Files.readAllLines(path);
@@ -44,14 +44,6 @@ public class Tiles extends GameObject {
       }
     } catch (IOException ex) {
       ex.printStackTrace();
-    }
-  }
-
-  public boolean isWall(int x, int y) {
-    if (board[x][y].equals("1")) {
-      return true;
-    } else {
-      return false;
     }
   }
 }

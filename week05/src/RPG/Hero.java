@@ -2,7 +2,7 @@ package RPG;
 
 import java.awt.image.BufferedImage;
 
-public class Hero extends Characters {
+public class Hero extends Character {
 
 
   public Hero(BufferedImage image, int posX, int posY) {
