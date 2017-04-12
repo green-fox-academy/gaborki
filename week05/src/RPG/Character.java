@@ -1,5 +1,9 @@
 package RPG;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Gabor on 10/04/2017.
  */
@@ -36,13 +40,13 @@ public class Character extends GameObject {
   public int[] randomPosition() {
     Tiles.readBoard();
     random[0] = random[1] = -1;
-    while (isWall(random[0], random[1])) {
+    while (isWall(random[0], random[1]) || (random[0] == 0 && random[1] == 0)) {
       random[0] = (int) (Math.random() * 10);
       random[1] = (int) (Math.random() * 10);
     }
     random[0] *= tileSize;
     random[1] *= tileSize;
-      return random;
-    }
+    return random;
   }
+}
 

@@ -26,14 +26,14 @@ public class GameObject {
   }
 
   void setImage(BufferedImage image) {
-      this.image = image;
+    this.image = image;
   }
 
   public boolean isWall(int x, int y) {
-    if (x < 0 || y < 0 || x > Tiles.board.length - 1 || Tiles.board.length -1 < y){
+    if (x < 0 || y < 0 || x > Tiles.board.length - 1 || Tiles.board.length - 1 < y) {
       return true;
     }
-    if (Tiles.board[x][y].equals("1") ) {
+    if (Tiles.board[x][y].equals("1")) {
       return true;
     } else {
       return false;
