@@ -1,37 +1,33 @@
 package RPG;
 
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils.IO;
 import java.awt.Graphics;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
  * Created by Gabor on 10/04/2017.
  */
-public class Tiles extends GameObjects {
+public class Tiles extends GameObject {
 
   int tileSize = 72;
   String[][] board = new String[10][10];
   List<PositionedImage> canvas = new ArrayList<>();
 
-
-  public List<PositionedImage> drawTile() {
-    canvas = new ArrayList<>();
+  public List<PositionedImage> drawTile(Graphics graphics) {
     for (int i = 0; i < 10; i++) {
       for (int j = 0; j < 10; j++) {
         if (isWall(i, j)) {
-          PositionedImage floor = new PositionedImage("src/RPG/wall.png", j * tileSize,
-              i * tileSize);
-          canvas.add(floor);
+          PositionedImage floor = new PositionedImage(ImageLoader.getInstance().WALL, i * tileSize,
+              j * tileSize);
+          floor.draw(graphics);
         } else {
-          PositionedImage floor = new PositionedImage("src/RPG/floor.png", j * tileSize,
-              i * tileSize);
-          canvas.add(floor);
+          PositionedImage floor = new PositionedImage(ImageLoader.getInstance().FLOOR, i * tileSize,
+              j * tileSize);
+          floor.draw(graphics);
         }
       }
     }
@@ -57,10 +53,7 @@ public class Tiles extends GameObjects {
     } else {
       return false;
     }
-
   }
-
-
 }
 
 

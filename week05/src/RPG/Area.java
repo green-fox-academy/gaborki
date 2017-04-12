@@ -3,6 +3,6 @@ package RPG;
 /**
  * Created by Gabor on 10/04/2017.
  */
-public class Area extends GameObjects {
+public class Area extends GameObject {
 
 }

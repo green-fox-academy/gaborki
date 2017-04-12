@@ -1,7 +1,5 @@
 package RPG;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -14,16 +12,18 @@ import java.awt.event.KeyListener;
 
 public class Board extends JComponent implements KeyListener {
 
-  int testBoxX;
-  int testBoxY;
-  int tileSize;
+  int currentPosX;
+  int currentPosY;
   Tiles tile;
-  PositionedImage hero;
+  Monsters monsterOne = new Monsters(ImageLoader.getInstance().MONSTER);
+  Hero arpiG = new Hero(ImageLoader.getInstance().HERO_DOWN, currentPosX, currentPosY);
+  int x;
+  int y;
+
 
   public Board() {
-    testBoxX = 0;
-    testBoxY = 0;
-    hero = new PositionedImage("src/RPG/hero-down.png", testBoxX, testBoxY);
+    currentPosX = 0;
+    currentPosY = 0;
     setPreferredSize(new Dimension(720, 720));
     setVisible(true);
   }
@@ -33,11 +33,10 @@ public class Board extends JComponent implements KeyListener {
     tile = new Tiles();
     super.paint(graphics);
     tile.readBoard();
-    tile.drawTile();
-    for (int i = 0; i < tile.canvas.size(); i++){
-      tile.canvas.get(i).draw(graphics);
-    }
-    hero.draw(graphics);
+    tile.drawTile(graphics);
+    arpiG.draw(graphics);
+    monsterOne.draw(graphics);
+
   }
 
   public static void main(String[] args) {
@@ -62,21 +61,25 @@ public class Board extends JComponent implements KeyListener {
 
   @Override
   public void keyReleased(KeyEvent e) {
-    int x = hero.posX / 72;
-    int y = hero.posY / 72;
-
-    if (e.getKeyCode() == KeyEvent.VK_UP && hero.posY >= tile.tileSize && !tile.isWall(x, y - 1)) {
-      hero.posY -= tile.tileSize;
-    } else if (e.getKeyCode() == KeyEvent.VK_DOWN && hero.posY < 720 - tile.tileSize && !tile.isWall(x, y + 1)) {
-      hero.posY += tile.tileSize;
-    } else if (e.getKeyCode() == KeyEvent.VK_LEFT && hero.posX >= 72 && !tile.isWall(x - 1, y)) {
-      hero.posX -= tile.tileSize;
-    } else if (e.getKeyCode() == KeyEvent.VK_RIGHT && hero.posX < 720 - tile.tileSize && !tile.isWall(x + 1, y)) {
-      hero.posX += tile.tileSize;
+    if (e.getKeyCode() == KeyEvent.VK_UP && currentPosY >= tile.tileSize && !tile.isWall(x, y - 1)) {
+      currentPosY -= tile.tileSize;
+      arpiG.moveUp();
+    } else if (e.getKeyCode() == KeyEvent.VK_DOWN && currentPosY < 720 - tile.tileSize && !tile
+        .isWall(x, y + 1)) {
+      currentPosY += tile.tileSize;
+      arpiG.moveDown();
+    } else if (e.getKeyCode() == KeyEvent.VK_LEFT && currentPosX >= 72 && !tile.isWall(x - 1, y)) {
+      currentPosX -= tile.tileSize;
+      arpiG.moveLeft();
+    } else if (e.getKeyCode() == KeyEvent.VK_RIGHT && currentPosX < 720 - tile.tileSize && !tile
+        .isWall(x + 1, y)) {
+      currentPosX += tile.tileSize;
+      arpiG.moveRight();
     }
+    x = currentPosX / 72;
+    y = currentPosY / 72;
     repaint();
   }
-
-
 }
+
 
