@@ -34,7 +34,6 @@ public class Character extends GameObject {
 
   public boolean beatenCharacter(Character defender) {
     if (defender.HP <= 0) {
-      ;
       return true;
     }
     return false;
@@ -103,5 +102,4 @@ public class Character extends GameObject {
     }
     return true;
   }
-
 }
