@@ -14,11 +14,20 @@ public class Character extends GameObject {
   int HP;
   int DP;
   int SP;
-  int LEVEL;
+  int HeroLEVEL;
 
 
   public Character() {
 
+  }
+
+  public boolean isItBattleTime(Hero hero, List<Character> crew){
+    for (Character enemy : crew) {
+      if (hero.posX == enemy.posX && hero.posY == enemy.posY) {
+        return true;
+      }
+    }
+    return false;
   }
 
   public int dSixRandom(){

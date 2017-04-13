@@ -17,9 +17,9 @@ public class Boss extends Monster {
     bossPos = randomPosition();
     posX = bossPos[0];
     posY = bossPos[1];
-    HP = 2 * dSixRandom() * LEVEL + dSixRandom();
-    DP = dSixRandom() * (LEVEL / 2) + (dSixRandom() / 2);
-    SP = LEVEL * dSixRandom() + (LEVEL / 2);
+    HP = 2 * dSixRandom() * MonsterLEVEL + dSixRandom();
+    DP = dSixRandom() * (MonsterLEVEL / 2) + (dSixRandom() / 2);
+    SP = MonsterLEVEL * dSixRandom() + (MonsterLEVEL / 2);
   }
 
   static void createBoss(List<Character> crew){

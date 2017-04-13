@@ -8,6 +8,8 @@ import java.util.List;
  */
 public class Monster extends Character {
 
+  int MonsterLEVEL;
+
   public Monster() {
 
   }
@@ -18,10 +20,10 @@ public class Monster extends Character {
     monsterPos = randomPosition();
     posX = monsterPos[0];
     posY = monsterPos[1];
-    LEVEL = 1;
-    HP = 2 * dSixRandom() * LEVEL;
-    DP = dSixRandom() * (LEVEL / 2);
-    SP = LEVEL * dSixRandom();
+    MonsterLEVEL = 1;
+    HP = 2 * dSixRandom() * MonsterLEVEL;
+    DP = dSixRandom() * (MonsterLEVEL / 2);
+    SP = MonsterLEVEL * dSixRandom();
   }
 
   static void createMonsters(List<Character> crew){
