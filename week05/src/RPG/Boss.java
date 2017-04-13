@@ -22,7 +22,7 @@ public class Boss extends Monster {
     SP = MonsterLEVEL * dSixRandom() + (MonsterLEVEL / 2);
   }
 
-  static void createBoss(List<Character> crew){
+  static void createBoss(List<Monster> crew){
       crew.add(new Boss(ImageLoader.getInstance().BOSS));
   }
 }

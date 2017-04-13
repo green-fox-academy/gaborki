@@ -26,7 +26,7 @@ public class Monster extends Character {
     SP = MonsterLEVEL * dSixRandom();
   }
 
-  static void createMonsters(List<Character> crew){
+  static void createMonsters(List<Monster> crew){
     int max = 2 + (int)(Math.random()*3);
     for (int i = 0; i < max; i++){
       crew.add(new Monster(ImageLoader.getInstance().MONSTER));

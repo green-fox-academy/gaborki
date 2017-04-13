@@ -21,7 +21,8 @@ public class Board extends JComponent implements KeyListener {
   Hero arpiG;
   int boardX;
   int boardY;
-  static List<Character> enemies = new ArrayList<>();
+  static List<Monster> enemies = new ArrayList<>();
+  static List<Character> battleDuo = new ArrayList<>();
 
 
   public Board() {
@@ -84,6 +85,8 @@ public class Board extends JComponent implements KeyListener {
         .isWall(boardX + 1, boardY)) {
       currentPosX += tile.tileSize;
       arpiG.moveRight();
+    }else if(e.getKeyCode() == KeyEvent.VK_SPACE){
+      arpiG.strike(arpiG, enemies);
     }
     boardX = currentPosX / tile.tileSize;
     boardY = currentPosY / tile.tileSize;

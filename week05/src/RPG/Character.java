@@ -15,20 +15,55 @@ public class Character extends GameObject {
   int DP;
   int SP;
   int HeroLEVEL;
+  int attacker;
+  int defender;
+  int SV;
 
 
   public Character() {
 
   }
 
-  public boolean isItBattleTime(Hero hero, List<Character> crew){
-    for (Character enemy : crew) {
-      if (hero.posX == enemy.posX && hero.posY == enemy.posY) {
+  public boolean isItBattle(Hero hero, List<Monster> crew) {
+    for (int i = 0; i < crew.size(); i++) {
+      if (hero.posX == crew.get(i).posX && hero.posY == crew.get(i).posY){
         return true;
       }
     }
     return false;
   }
+
+  public static void BattlePair(Hero hero, List<Monster> crew) {
+    for (int i = 0; i < crew.size(); i++) {
+      if (hero.posX == crew.get(i).posX && hero.posY == crew.get(i).posY) {
+        Board.battleDuo.add(1, hero);
+        Board.battleDuo.add(2, crew.get(i));
+      }
+    }
+  }
+
+  public void strike (Hero hero, List<Monster> crew) {
+    System.out.println(crew.get(defender).HP);
+    if (isItBattle(hero, crew)) {
+      for (int i = 0; i < crew.size(); i++) {
+        if (hero.posX == crew.get(i).posX && hero.posY == crew.get(i).posY) {
+          Board.battleDuo.add(0, hero);
+          Board.battleDuo.add(1, crew.get(i));
+          attacker = 0;
+          defender = 1;
+          SV = Board.battleDuo.get(attacker).SP + 2 * dSixRandom();
+          if (SV > Board.battleDuo.get(defender).DP) {
+            Board.battleDuo.get(defender).HP -= (SV - Board.battleDuo.get(defender).DP);
+          }
+          crew.get(defender).HP = Board.battleDuo.get(1).HP;
+          hero.HP = Board.battleDuo.get(0).HP;
+          System.out.println(crew.get(defender).HP);
+          System.out.println(hero.SV);
+        }
+      }
+    }
+  }
+
 
   public int dSixRandom(){
     return (int)(Math.random()*6) + 1;
