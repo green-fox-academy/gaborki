@@ -10,11 +10,19 @@ import java.util.List;
 public class Character extends GameObject {
 
   int tileSize = 72;
-  int random[] = new int[2];
+  int randomPos[] = new int[2];
+  int HP;
+  int DP;
+  int SP;
+  int LEVEL;
 
 
   public Character() {
 
+  }
+
+  public int dSixRandom(){
+    return (int)(Math.random()*6) + 1;
   }
 
   public void moveUp() {
@@ -39,14 +47,14 @@ public class Character extends GameObject {
 
   public int[] randomPosition() {
     Tiles.readBoard();
-    random[0] = random[1] = -1;
-    while (isWall(random[0], random[1]) || (random[0] == 0 && random[1] == 0) || !isTileEmpty(random[0], random[1])) {
-      random[0] = (int) (Math.random() * 10);
-      random[1] = (int) (Math.random() * 10);
+    randomPos[0] = randomPos[1] = -1;
+    while (isWall(randomPos[0], randomPos[1]) || (randomPos[0] == 0 && randomPos[1] == 0) || !isTileEmpty(randomPos[0], randomPos[1])) {
+      randomPos[0] = (int) (Math.random() * 10);
+      randomPos[1] = (int) (Math.random() * 10);
     }
-    random[0] *= tileSize;
-    random[1] *= tileSize;
-    return random;
+    randomPos[0] *= tileSize;
+    randomPos[1] *= tileSize;
+    return randomPos;
   }
 
   public boolean isTileEmpty(int x, int y) {

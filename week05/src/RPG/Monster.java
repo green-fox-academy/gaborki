@@ -18,6 +18,10 @@ public class Monster extends Character {
     monsterPos = randomPosition();
     posX = monsterPos[0];
     posY = monsterPos[1];
+    LEVEL = 1;
+    HP = 2 * dSixRandom() * LEVEL;
+    DP = dSixRandom() * (LEVEL / 2);
+    SP = LEVEL * dSixRandom();
   }
 
   static void createMonsters(List<Character> crew){
