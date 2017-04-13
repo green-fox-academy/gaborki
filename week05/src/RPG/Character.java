@@ -15,9 +15,9 @@ public class Character extends GameObject {
   int DP;
   int SP;
   int HeroLEVEL;
-  int attacker;
-  int defender;
+  int battleWith;
   int SV;
+
 
 
   public Character() {
@@ -27,43 +27,37 @@ public class Character extends GameObject {
   public boolean isItBattle(Hero hero, List<Monster> crew) {
     for (int i = 0; i < crew.size(); i++) {
       if (hero.posX == crew.get(i).posX && hero.posY == crew.get(i).posY){
+        battleWith = i;
         return true;
       }
     }
     return false;
   }
 
-  public static void BattlePair(Hero hero, List<Monster> crew) {
-    for (int i = 0; i < crew.size(); i++) {
-      if (hero.posX == crew.get(i).posX && hero.posY == crew.get(i).posY) {
-        Board.battleDuo.add(1, hero);
-        Board.battleDuo.add(2, crew.get(i));
-      }
+  public boolean beatenCharacter(Character defender){
+    if (defender.HP <= 0){;
+      return true;
     }
+    return false;
   }
 
-  public void strike (Hero hero, List<Monster> crew) {
-    System.out.println(crew.get(defender).HP);
-    if (isItBattle(hero, crew)) {
-      for (int i = 0; i < crew.size(); i++) {
-        if (hero.posX == crew.get(i).posX && hero.posY == crew.get(i).posY) {
-          Board.battleDuo.add(0, hero);
-          Board.battleDuo.add(1, crew.get(i));
-          attacker = 0;
-          defender = 1;
-          SV = Board.battleDuo.get(attacker).SP + 2 * dSixRandom();
-          if (SV > Board.battleDuo.get(defender).DP) {
-            Board.battleDuo.get(defender).HP -= (SV - Board.battleDuo.get(defender).DP);
-          }
-          crew.get(defender).HP = Board.battleDuo.get(1).HP;
-          hero.HP = Board.battleDuo.get(0).HP;
-          System.out.println(crew.get(defender).HP);
-          System.out.println(hero.SV);
+  public void strike(Character attacker, Character defender) {
+    if (!beatenCharacter(attacker) && !beatenCharacter(defender)) {
+      SV = attacker.SP + 2 * dSixRandom();
+      if (SV > defender.DP) {
+        defender.HP -= SV - defender.DP;
+      }
+      if (beatenCharacter(defender)) {
+       Board.enemies.get(battleWith).removeBeatenCreature(defender);
+      } else {
+        int round = 0;
+        while (round < 1){
+          strike(defender, attacker);
+          round++;
         }
       }
     }
   }
-
 
   public int dSixRandom(){
     return (int)(Math.random()*6) + 1;
