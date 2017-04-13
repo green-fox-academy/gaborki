@@ -49,4 +49,3 @@ public class Character extends GameObject {
     return random;
   }
 }
-

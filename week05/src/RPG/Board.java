@@ -1,6 +1,5 @@
 package RPG;
 
-import java.lang.reflect.Array;
 import java.util.*;
 import java.util.List;
 import javax.swing.*;
@@ -17,18 +16,22 @@ public class Board extends JComponent implements KeyListener {
 
   int currentPosX;
   int currentPosY;
+  int boardSize;
   Tiles tile;
-  Hero arpiG = new Hero(ImageLoader.getInstance().HERO_DOWN, currentPosX, currentPosY);
+  Hero arpiG;
   int boardX;
   int boardY;
-  List<Character> monsters = new ArrayList<>();
+  List<Character> enemies = new ArrayList<>();
 
 
   public Board() {
-    Monster.createMonsters(monsters);
+    arpiG = new Hero(ImageLoader.getInstance().HERO_DOWN, currentPosX, currentPosY);
+    Monster.createMonsters(enemies);
+    Boss.createBoss(enemies);
+    boardSize = 720;
     currentPosX = 0;
     currentPosY = 0;
-    setPreferredSize(new Dimension(720, 720));
+    setPreferredSize(new Dimension(boardSize, boardSize));
     setVisible(true);
   }
 
@@ -36,11 +39,10 @@ public class Board extends JComponent implements KeyListener {
   public void paint(Graphics graphics) {
     tile = new Tiles();
     super.paint(graphics);
-    tile.readBoard();
     tile.drawTile(graphics);
     arpiG.draw(graphics);
-    for (int i = 0; i < monsters.size(); i++) {
-      monsters.get(i).draw(graphics);
+    for (int i = 0; i < enemies.size(); i++) {
+      enemies.get(i).draw(graphics);
     }
   }
 
@@ -70,23 +72,21 @@ public class Board extends JComponent implements KeyListener {
         .isWall(boardX, boardY - 1)) {
       currentPosY -= tile.tileSize;
       arpiG.moveUp();
-    } else if (e.getKeyCode() == KeyEvent.VK_DOWN && currentPosY < 720 - tile.tileSize && !tile
+    } else if (e.getKeyCode() == KeyEvent.VK_DOWN && currentPosY < boardSize - tile.tileSize && !tile
         .isWall(boardX, boardY + 1)) {
       currentPosY += tile.tileSize;
       arpiG.moveDown();
-    } else if (e.getKeyCode() == KeyEvent.VK_LEFT && currentPosX >= 72 && !tile
+    } else if (e.getKeyCode() == KeyEvent.VK_LEFT && currentPosX >= tile.tileSize && !tile
         .isWall(boardX - 1, boardY)) {
       currentPosX -= tile.tileSize;
       arpiG.moveLeft();
-    } else if (e.getKeyCode() == KeyEvent.VK_RIGHT && currentPosX < 720 - tile.tileSize && !tile
+    } else if (e.getKeyCode() == KeyEvent.VK_RIGHT && currentPosX < boardSize - tile.tileSize && !tile
         .isWall(boardX + 1, boardY)) {
       currentPosX += tile.tileSize;
       arpiG.moveRight();
     }
-    boardX = currentPosX / 72;
-    boardY = currentPosY / 72;
+    boardX = currentPosX / tile.tileSize;
+    boardY = currentPosY / tile.tileSize;
     repaint();
   }
 }
-
-

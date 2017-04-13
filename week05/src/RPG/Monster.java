@@ -9,14 +9,15 @@ import java.util.List;
 public class Monster extends Character {
 
   public Monster() {
+
   }
 
-
   public Monster(BufferedImage image) {
+    int[] monsterPos;
     this.image = ImageLoader.getInstance().MONSTER;
-    int[] pos = randomPosition();
-    posX = pos[0];
-    posY = pos[1];
+    monsterPos = randomPosition();
+    posX = monsterPos[0];
+    posY = monsterPos[1];
   }
 
   static void createMonsters(List<Character> crew){
