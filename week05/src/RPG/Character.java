@@ -18,15 +18,13 @@ public class Character extends GameObject {
   int battleWith;
   int SV;
 
-
-
   public Character() {
 
   }
 
   public boolean isItBattle(Hero hero, List<Monster> crew) {
     for (int i = 0; i < crew.size(); i++) {
-      if (hero.posX == crew.get(i).posX && hero.posY == crew.get(i).posY){
+      if (hero.posX == crew.get(i).posX && hero.posY == crew.get(i).posY) {
         battleWith = i;
         return true;
       }
@@ -34,8 +32,9 @@ public class Character extends GameObject {
     return false;
   }
 
-  public boolean beatenCharacter(Character defender){
-    if (defender.HP <= 0){;
+  public boolean beatenCharacter(Character defender) {
+    if (defender.HP <= 0) {
+      ;
       return true;
     }
     return false;
@@ -48,10 +47,10 @@ public class Character extends GameObject {
         defender.HP -= SV - defender.DP;
       }
       if (beatenCharacter(defender)) {
-       Board.enemies.get(battleWith).removeBeatenCreature(defender);
+        Board.enemies.get(battleWith).removeBeatenCreature(defender);
       } else {
         int round = 0;
-        while (round < 1){
+        while (round < 1) {
           strike(defender, attacker);
           round++;
         }
@@ -59,8 +58,8 @@ public class Character extends GameObject {
     }
   }
 
-  public int dSixRandom(){
-    return (int)(Math.random()*6) + 1;
+  public int dSixRandom() {
+    return (int) (Math.random() * 6) + 1;
   }
 
   public void moveUp() {
@@ -86,7 +85,8 @@ public class Character extends GameObject {
   public int[] randomPosition() {
     Tiles.readBoard();
     randomPos[0] = randomPos[1] = -1;
-    while (isWall(randomPos[0], randomPos[1]) || (randomPos[0] == 0 && randomPos[1] == 0) || !isTileEmpty(randomPos[0], randomPos[1])) {
+    while (isWall(randomPos[0], randomPos[1]) || (randomPos[0] == 0 && randomPos[1] == 0)
+        || !isTileEmpty(randomPos[0], randomPos[1])) {
       randomPos[0] = (int) (Math.random() * 10);
       randomPos[1] = (int) (Math.random() * 10);
     }
@@ -96,13 +96,12 @@ public class Character extends GameObject {
   }
 
   public boolean isTileEmpty(int x, int y) {
-    for (Character enemy : Board.enemies)
+    for (Character enemy : Board.enemies) {
       if ((enemy.posY == y && enemy.posX == x)) {
         return false;
       }
-    return true;
     }
+    return true;
+  }
 
 }
-
-

@@ -40,5 +40,4 @@ public class Monster extends Character {
   public void removeBeatenCreature(Character defender) {
     Board.enemies.remove(battleWith);
   }
-
-
+}

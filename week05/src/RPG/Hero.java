@@ -14,7 +14,3 @@ public class Hero extends Character {
     SP = 5 + dSixRandom();
   }
 }
-
-
-
-
