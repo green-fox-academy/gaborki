@@ -40,7 +40,7 @@ public class Character extends GameObject {
   public int[] randomPosition() {
     Tiles.readBoard();
     random[0] = random[1] = -1;
-    while (isWall(random[0], random[1]) || (random[0] == 0 && random[1] == 0)) {
+    while (isWall(random[0], random[1]) || (random[0] == 0 && random[1] == 0) || !isTileEmpty(random[0], random[1])) {
       random[0] = (int) (Math.random() * 10);
       random[1] = (int) (Math.random() * 10);
     }
@@ -48,4 +48,15 @@ public class Character extends GameObject {
     random[1] *= tileSize;
     return random;
   }
+
+  public boolean isTileEmpty(int x, int y) {
+    for (Character enemy : Board.enemies)
+      if ((enemy.posY == y && enemy.posX == x)) {
+        return false;
+      }
+    return true;
+    }
+
 }
+
+

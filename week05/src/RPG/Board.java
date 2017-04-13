@@ -21,7 +21,7 @@ public class Board extends JComponent implements KeyListener {
   Hero arpiG;
   int boardX;
   int boardY;
-  List<Character> enemies = new ArrayList<>();
+  static List<Character> enemies = new ArrayList<>();
 
 
   public Board() {
