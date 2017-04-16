@@ -1,6 +1,7 @@
 package RPG;
 
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -11,13 +12,12 @@ import java.util.List;
 /**
  * Created by Gabor on 10/04/2017.
  */
-public class Tiles extends GameObject {
+public class Tile extends GameObject {
 
-  int tileSize = 72;
   static String[][] board = new String[10][10];
   List<PositionedImage> canvas = new ArrayList<>();
 
-  public List<PositionedImage> drawTile(Graphics graphics) {
+  public List<PositionedImage> drawBoard(Graphics graphics) {
     for (int i = 0; i < 10; i++) {
       for (int j = 0; j < 10; j++) {
         if (isWall(i, j)) {
@@ -37,7 +37,7 @@ public class Tiles extends GameObject {
   public static void readBoard() {
     try {
       Path path = Paths.get("src/RPG/board.csv");
-      List<String> lines = Files.readAllLines(path);
+      java.util.List<String> lines = Files.readAllLines(path);
       for (int i = 0; i < lines.size(); i++) {
         String[] line = lines.get(i).split(" ");
         board[i] = line;

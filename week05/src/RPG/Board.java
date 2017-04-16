@@ -17,13 +17,12 @@ public class Board extends JComponent implements KeyListener {
   int currentPosX;
   int currentPosY;
   int boardSize;
-  Tiles tile;
-  Hero arpiG;
+  Tile tile;
+  Hud hud;
+  static Hero arpiG;
   int boardX;
   int boardY;
   static List<Monster> enemies = new ArrayList<>();
-  // static List<Character> battleDuo = new ArrayList<>();
-
 
   public Board() {
     arpiG = new Hero(ImageLoader.getInstance().HERO_DOWN, currentPosX, currentPosY);
@@ -32,16 +31,19 @@ public class Board extends JComponent implements KeyListener {
     boardSize = 720;
     currentPosX = 0;
     currentPosY = 0;
-    setPreferredSize(new Dimension(boardSize, boardSize));
+    setPreferredSize(new Dimension(boardSize, boardSize + 72));
     setVisible(true);
   }
 
   @Override
   public void paint(Graphics graphics) {
-    tile = new Tiles();
+    tile = new Tile();
+    hud = new Hud();
     super.paint(graphics);
-    tile.drawTile(graphics);
+    Tile.readBoard();
+    tile.drawBoard(graphics);
     arpiG.draw(graphics);
+    hud.drawHud(arpiG, graphics);
     for (int i = 0; i < enemies.size(); i++) {
       enemies.get(i).draw(graphics);
     }
@@ -72,21 +74,25 @@ public class Board extends JComponent implements KeyListener {
     if (e.getKeyCode() == KeyEvent.VK_UP && currentPosY >= tile.tileSize && !tile
         .isWall(boardX, boardY - 1)) {
       currentPosY -= tile.tileSize;
-      arpiG.moveUp();
+      arpiG.moveCount++;
+      arpiG.moveUp(ImageLoader.getInstance().HERO_UP);
     } else if (e.getKeyCode() == KeyEvent.VK_DOWN && currentPosY < boardSize - tile.tileSize
         && !tile
         .isWall(boardX, boardY + 1)) {
       currentPosY += tile.tileSize;
-      arpiG.moveDown();
+      arpiG.moveCount++;
+      arpiG.moveDown(ImageLoader.getInstance().HERO_DOWN);
     } else if (e.getKeyCode() == KeyEvent.VK_LEFT && currentPosX >= tile.tileSize && !tile
         .isWall(boardX - 1, boardY)) {
       currentPosX -= tile.tileSize;
-      arpiG.moveLeft();
+      arpiG.moveCount++;
+      arpiG.moveLeft(ImageLoader.getInstance().HERO_LEFT);
     } else if (e.getKeyCode() == KeyEvent.VK_RIGHT && currentPosX < boardSize - tile.tileSize
         && !tile
         .isWall(boardX + 1, boardY)) {
       currentPosX += tile.tileSize;
-      arpiG.moveRight();
+      arpiG.moveCount++;
+      arpiG.moveRight(ImageLoader.getInstance().HERO_RIGHT);
     } else if (e.getKeyCode() == KeyEvent.VK_SPACE && arpiG.isItBattle(arpiG, enemies)) {
       arpiG.strike(arpiG, enemies.get(arpiG.battleWith));
     }

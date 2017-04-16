@@ -1,6 +1,5 @@
 package RPG;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import java.awt.image.BufferedImage;
 import java.util.List;
 
@@ -10,6 +9,7 @@ import java.util.List;
 public class Monster extends Character {
 
   int MonsterLEVEL;
+  int randomPos[] = new int[2];
   Boolean hasKey;
 
   public Monster() {
@@ -37,7 +37,22 @@ public class Monster extends Character {
     crew.get(1).hasKey = true;
   }
 
-  public void removeBeatenCreature(Character defender) {
-    Board.enemies.remove(battleWith);
+  public int[] randomPosition() {
+    Tile.readBoard();
+    randomPos[0] = randomPos[1] = -1;
+    while (isWall(randomPos[0], randomPos[1]) || (randomPos[0] == 0 && randomPos[1] == 0)
+        || !isTileEmpty(randomPos[0], randomPos[1])) {
+      randomPos[0] = (int) (Math.random() * boardDimension);
+      randomPos[1] = (int) (Math.random() * boardDimension);
+    }
+    randomPos[0] *= tileSize;
+    randomPos[1] *= tileSize;
+    return randomPos;
+  }
+
+  public void monsterMove(){
+    if (moveCount % 2 == 0 && moveCount > 0){
+
+    }
   }
 }

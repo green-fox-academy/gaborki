@@ -3,12 +3,13 @@ package RPG;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-
 public class GameObject {
 
   BufferedImage image;
   int posX;
   int posY;
+  int tileSize = 72;
+  int boardDimension = 10;
 
   public GameObject() {
   }
@@ -30,13 +31,22 @@ public class GameObject {
   }
 
   public boolean isWall(int x, int y) {
-    if (x < 0 || y < 0 || x > Tiles.board.length - 1 || Tiles.board.length - 1 < y) {
+    if (x < 0 || y < 0 || x > boardDimension - 1 || boardDimension - 1 < y) {
       return true;
     }
-    if (Tiles.board[x][y].equals("1")) {
+    if (Tile.board[x][y].equals("1")) {
       return true;
     } else {
       return false;
     }
+  }
+
+  public boolean isTileEmpty(int x, int y) {
+    for (Character enemy : Board.enemies) {
+      if ((enemy.posY == y && enemy.posX == x)) {
+        return false;
+      }
+    }
+    return true;
   }
 }

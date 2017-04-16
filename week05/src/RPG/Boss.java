@@ -20,6 +20,7 @@ public class Boss extends Monster {
     HP = 2 * dSixRandom() * MonsterLEVEL + dSixRandom();
     DP = dSixRandom() * (MonsterLEVEL / 2) + (dSixRandom() / 2);
     SP = MonsterLEVEL * dSixRandom() + (MonsterLEVEL / 2);
+    hasKey = false;
   }
 
   static void createBoss(List<Monster> crew){

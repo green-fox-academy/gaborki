@@ -1,7 +1,6 @@
 package RPG;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+import java.awt.image.BufferedImage;
 import java.util.List;
 
 /**
@@ -9,14 +8,11 @@ import java.util.List;
  */
 public class Character extends GameObject {
 
-  int tileSize = 72;
-  int randomPos[] = new int[2];
-  int HP;
-  int DP;
-  int SP;
-  int HeroLEVEL;
-  int battleWith;
-  int SV;
+  int HP; int DP; int SP; int HeroLEVEL; int battleWith; int SV;
+  int killCount = 0;
+  int keyCount = 0;
+  int round = 0;
+  int moveCount = 0;
 
   public Character() {
 
@@ -39,20 +35,30 @@ public class Character extends GameObject {
     return false;
   }
 
+  public void killCreature() {
+    if (Board.enemies.get(battleWith).hasKey){
+      keyCount++;
+    }
+    Board.enemies.remove(battleWith);
+  }
+
   public void strike(Character attacker, Character defender) {
     if (!beatenCharacter(attacker) && !beatenCharacter(defender)) {
       SV = attacker.SP + 2 * dSixRandom();
       if (SV > defender.DP) {
         defender.HP -= SV - defender.DP;
       }
-      if (beatenCharacter(defender)) {
-        Board.enemies.get(battleWith).removeBeatenCreature(defender);
+      if (beatenCharacter(defender)){
+        if (Board.enemies.contains(defender)){
+          killCount++;
+        }
+        killCreature();
       } else {
-        int round = 0;
         while (round < 1) {
           strike(defender, attacker);
           round++;
         }
+        round = 0;
       }
     }
   }
@@ -61,45 +67,23 @@ public class Character extends GameObject {
     return (int) (Math.random() * 6) + 1;
   }
 
-  public void moveUp() {
+  public void moveUp(BufferedImage image) {
     this.posY -= tileSize;
-    setImage(ImageLoader.getInstance().HERO_UP);
+    setImage(image);
   }
 
-  public void moveDown() {
+  public void moveDown(BufferedImage image) {
     this.posY += tileSize;
-    setImage(ImageLoader.getInstance().HERO_DOWN);
+    setImage(image);
   }
 
-  public void moveLeft() {
+  public void moveLeft(BufferedImage image) {
     this.posX -= tileSize;
-    setImage(ImageLoader.getInstance().HERO_LEFT);
+    setImage(image);
   }
 
-  public void moveRight() {
+  public void moveRight(BufferedImage image) {
     this.posX += tileSize;
-    setImage(ImageLoader.getInstance().HERO_RIGHT);
-  }
-
-  public int[] randomPosition() {
-    Tiles.readBoard();
-    randomPos[0] = randomPos[1] = -1;
-    while (isWall(randomPos[0], randomPos[1]) || (randomPos[0] == 0 && randomPos[1] == 0)
-        || !isTileEmpty(randomPos[0], randomPos[1])) {
-      randomPos[0] = (int) (Math.random() * 10);
-      randomPos[1] = (int) (Math.random() * 10);
-    }
-    randomPos[0] *= tileSize;
-    randomPos[1] *= tileSize;
-    return randomPos;
-  }
-
-  public boolean isTileEmpty(int x, int y) {
-    for (Character enemy : Board.enemies) {
-      if ((enemy.posY == y && enemy.posX == x)) {
-        return false;
-      }
-    }
-    return true;
+    setImage(image);
   }
 }
