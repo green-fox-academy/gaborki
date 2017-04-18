@@ -1,3 +1,5 @@
+package CharOps;
+
 /**
  * Created by Gabor on 18/04/2017.
  */
@@ -5,19 +7,24 @@ public class CharOperations {//implements CharSequence{
 
   public static void main(String[] args) {
 
-    CharOperations mivan = new CharOperations();
+    CharOperations first = new CharOperations("Test");
+    CharOperations second = new CharOperations(11223);
 
-    System.out.println(mivan.subSequence(0, 5));
-    System.out.println(mivan.charAt(0));
-    System.out.println(mivan.toString());
+    System.out.println(first.charAt(0));
+    System.out.println(second.toString());
+    System.out.println(first.subSequence(0, 4));
   }
 
-  public CharOperations() {
+  String string;
+  int test;
 
+  public CharOperations(String string) {
+    this.string = string;
   }
 
-  String string = "Test String";
-  int test = 103434;
+  public CharOperations(int test) {
+    this.test = test;
+  }
 
   public String subSequence(int start, int end) {
     String result = "";
@@ -35,7 +42,8 @@ public class CharOperations {//implements CharSequence{
   }
 
   public String toString(){
-    this.string = "" + test;
+    this.string = new String();
+    this.string += test;
     string = subSequence(0, string.length());
     return string;
   }
