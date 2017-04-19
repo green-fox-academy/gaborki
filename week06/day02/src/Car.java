@@ -19,7 +19,6 @@ public class Car {
 
   public enum CarType {
     LADA, TRABANT, VOLGA, WARTBURG;
-
     public static CarType getRandom() {
       return values()[(int) (Math.random() * values().length)];
     }
@@ -27,7 +26,6 @@ public class Car {
 
   public enum CarColor {
     RED, WHITE, BLUE, GREEN;
-
     public static CarColor getRandom() {
       return values()[(int) (Math.random() * values().length)];
     }
@@ -35,7 +33,6 @@ public class Car {
 
   public static String mostFrequentCar(List<Car> garage) {
     HashMap<String, Integer> map = new HashMap<>();
-
     for (Car car : garage) {
       String thisCar = car.color + " " + car.type;
       if (!map.containsKey(thisCar)) {
@@ -46,7 +43,6 @@ public class Car {
         map.put(thisCar, count);
       }
     }
-
     int maxAmount = 0;
     String mostCommonCars = new String();
     for (String key : map.keySet()) {
@@ -54,8 +50,8 @@ public class Car {
         maxAmount = map.get(key);
       }
     }
-    for (String key : map.keySet()){
-      if (map.get(key) == maxAmount){
+    for (String key : map.keySet()) {
+      if (map.get(key) == maxAmount) {
         mostCommonCars += key + " ";
       }
     }
@@ -63,7 +59,6 @@ public class Car {
   }
 
   public static void main(String[] args) {
-
     int countTRABANT = 0;
     int countVOLGA = 0;
     int countWARTBURG = 0;
@@ -72,14 +67,11 @@ public class Car {
     int countWHITE = 0;
     int countGREEN = 0;
     int countRED = 0;
-
     List<Car> garage = new ArrayList<>();
     for (int i = 0; i < 256; i++) {
       garage.add(new Car());
     }
-
     for (Car car : garage) {
-
       if (car.type.equals(CarType.LADA)) {
         countLADA++;
       } else if (car.type.equals(CarType.VOLGA)) {
@@ -99,7 +91,6 @@ public class Car {
         countRED++;
       }
     }
-
     System.out.println("The most frequent car in my garage is: " + mostFrequentCar(garage));
     System.out.println();
     System.out.println();
