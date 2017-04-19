@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -47,6 +49,7 @@ public class Car {
     }
 
     for (Car car : garage) {
+
       if (car.type.equals(CarType.LADA)) {
         countLADA++;
       } else if (car.type.equals(CarType.VOLGA)) {
