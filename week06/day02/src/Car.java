@@ -52,7 +52,11 @@ public class Car {
     for (String key : map.keySet()) {
       if (map.get(key) > maxAmount) {
         maxAmount = map.get(key);
-        mostCommonCars += key + ", ";
+      }
+    }
+    for (String key : map.keySet()){
+      if (map.get(key) == maxAmount){
+        mostCommonCars = key + " ";
       }
     }
     return mostCommonCars;
@@ -96,7 +100,7 @@ public class Car {
       }
     }
 
-    System.out.println("The most frequent cars in my garage are: " + mostFrequentCar(garage));
+    System.out.println("The most frequent car in my garage is: " + mostFrequentCar(garage));
     System.out.println();
     System.out.println();
     System.out.println("Number of Lada in the garage: " + countLADA);
