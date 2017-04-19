@@ -32,7 +32,7 @@ public class Car {
 
   public static void main(String[] args) {
 
-    int countTRABANT =  0;
+    int countTRABANT = 0;
     int countVOLGA = 0;
     int countWARTBURG = 0;
     int countLADA = 0;
@@ -42,22 +42,39 @@ public class Car {
     int countRED = 0;
 
     List<Car> garage = new ArrayList<>();
-    for (int i = 0; i < 256; i++){
+    for (int i = 0; i < 256; i++) {
       garage.add(new Car());
     }
 
-    for (Car car : garage){
+    for (Car car : garage) {
       if (car.type.equals(CarType.LADA)) {
         countLADA++;
-      } else if (car.type.equals(CarType.VOLGA)){
+      } else if (car.type.equals(CarType.VOLGA)) {
         countVOLGA++;
-      } else if (car.type.equals(CarType.TRABANT)){
+      } else if (car.type.equals(CarType.TRABANT)) {
         countTRABANT++;
-      } else if (car.type.equals(CarType.WARTBURG)){
+      } else if (car.type.equals(CarType.WARTBURG)) {
         countWARTBURG++;
       }
+      if (car.color.equals(CarColor.BLUE)) {
+        countBLUE++;
+      } else if (car.color.equals(CarColor.WHITE)) {
+        countWHITE++;
+      } else if (car.color.equals(CarColor.GREEN)) {
+        countGREEN++;
+      } else if (car.color.equals(CarColor.RED)) {
+        countRED++;
+      }
     }
+
+    System.out.println("Number of Lada in the garage: " + countLADA);
+    System.out.println("Number of Trabant in the garage: " + countTRABANT);
+    System.out.println("Number of Wartburg in the garage: " + countWARTBURG);
+    System.out.println("Number of Volga in the garage: " + countVOLGA);
+    System.out.println();
+    System.out.println("Number of red cars in the garage: " + countRED);
+    System.out.println("Number of blue cars in the garage: " + countBLUE);
+    System.out.println("Number of green cars in the garage: " + countGREEN);
+    System.out.println("Number of white cars in the garage: " + countWHITE);
   }
 }
-
-
