@@ -56,7 +56,7 @@ public class Car {
     }
     for (String key : map.keySet()){
       if (map.get(key) == maxAmount){
-        mostCommonCars = key + " ";
+        mostCommonCars += key + " ";
       }
     }
     return mostCommonCars;
