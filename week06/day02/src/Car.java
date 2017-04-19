@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -30,6 +31,31 @@ public class Car {
     public static CarColor getRandom() {
       return values()[(int) (Math.random() * values().length)];
     }
+  }
+
+  public static String mostFrequentCar(List<Car> garage) {
+    HashMap<String, Integer> map = new HashMap<>();
+
+    for (Car car : garage) {
+      String thisCar = car.color + " " + car.type;
+      if (!map.containsKey(thisCar)) {
+        map.put(thisCar, 1);
+      } else {
+        int count = map.get(thisCar);
+        count++;
+        map.put(thisCar, count);
+      }
+    }
+
+    int maxAmount = 0;
+    String mostCommonCars = new String();
+    for (String key : map.keySet()) {
+      if (map.get(key) > maxAmount) {
+        maxAmount = map.get(key);
+        mostCommonCars += key + ", ";
+      }
+    }
+    return mostCommonCars;
   }
 
   public static void main(String[] args) {
@@ -70,6 +96,9 @@ public class Car {
       }
     }
 
+    System.out.println("The most frequent cars in my garage are: " + mostFrequentCar(garage));
+    System.out.println();
+    System.out.println();
     System.out.println("Number of Lada in the garage: " + countLADA);
     System.out.println("Number of Trabant in the garage: " + countTRABANT);
     System.out.println("Number of Wartburg in the garage: " + countWARTBURG);

@@ -8,16 +8,18 @@ import java.util.Arrays;
 public class SplitString {
 
   public static void main(String[] args) {
-
-    splitThisString("mitegyek", 3);
+    splitThisString("mitegyek", 9);
   }
 
-  public static String[] splitThisString(String text, int index){
-    String[] splitText = new String[2];
-    splitText[0] = text.substring(0,index);
-    splitText[1] = text.substring(index, text.length());
-    System.out.println(Arrays.toString(splitText));
+  public static String[] splitThisString(String text, int index) {
+      String[] splitText = new String[2];
+    try {
+      splitText[0] = text.substring(0, index);
+      splitText[1] = text.substring(index, text.length());
+    } catch (IndexOutOfBoundsException e) {
+      System.out.println("Index is too large, I need a smaller number!");
+    }
     return splitText;
   }
-
 }
+
