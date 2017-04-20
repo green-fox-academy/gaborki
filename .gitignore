@@ -3,3 +3,6 @@ out
 *.iml
 *.xml
 .DS_Store
+gradle-app.setting
+!gradle-wrapper.jar
+.gradletasknamecache
