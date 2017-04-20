@@ -2,6 +2,8 @@ package Date;
 
 import java.time.Instant;
 import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
   public class BirthdayWithLocalDate implements BirthdayCalculator<LocalDate> {
@@ -16,7 +18,10 @@ import java.util.Scanner;
 
     @Override
     public String printMonthAndDay(LocalDate date) {
-      LocalDate monthAndDay = LocalDate.now();
+      DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM. dd.");
+      String mAndD = date.format(formatter);
+      return mAndD;
+
       // TODO - return the date formatted: month & day (MM. dd.)
     }
 
@@ -33,12 +38,20 @@ import java.util.Scanner;
 
     @Override
     public int calculateAgeInYears(LocalDate birthday) {
-
+      LocalDate today = LocalDate.now();
+      Period age = Period.between(today, birthday);
+      return age.getYears();
       // TODO - return how many years age the input date 'birthday' was
     }
 
     @Override
     public int calculateDaysToNextAnniversary(LocalDate date) {
+      LocalDate today = LocalDate.now();
+      Period daysToGo = Period.between(today, date);
+      if (daysToGo.getDays() < 0){
+       daysToGo = Period.between(today, date.plusYears(1));
+      }
+      return daysToGo.getDays();
       // TODO - the number of days remaining to the next anniversary of 'date' (e.g. if tomorrow, return 1)
     }
 
