@@ -1,9 +1,12 @@
 package Date;
 
+import com.sun.org.apache.xerces.internal.impl.dv.xs.DayDV;
+import java.time.DateTimeException;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
   public class BirthdayWithLocalDate implements BirthdayCalculator<LocalDate> {
@@ -27,12 +30,15 @@ import java.util.Scanner;
 
     @Override
     public boolean isAnniversaryToday(LocalDate date) {
-      LocalDate today = LocalDate.now();
-      if (today == date) {
-        return true;
-      } else {
-        return false;
+      if (date == null){
+        throw new NullPointerException();
       }
+        LocalDate today = LocalDate.now();
+        if (today == date) {
+          return true;
+        } else {
+          return false;
+        }
       // TODO - return with true if today is the same month+day as date
     }
 
@@ -47,13 +53,19 @@ import java.util.Scanner;
     @Override
     public int calculateDaysToNextAnniversary(LocalDate date) {
       LocalDate today = LocalDate.now();
-      Period daysToGo = Period.between(today, date);
-      if (daysToGo.getDays() < 0){
-       daysToGo = Period.between(today, date.plusYears(1));
+      LocalDate tempDate = LocalDate.of(today.getYear(), date.getMonth(), date.getDayOfMonth());
+      int result = (int)ChronoUnit.DAYS.between(today, tempDate);
+      if (result < 0) {
+        LocalDate nextBDay = LocalDate
+            .of(today.getYear() + 1, date.getMonth(), date.getDayOfMonth());
+        result = (int) ChronoUnit.DAYS.between(today, nextBDay);
       }
-      return daysToGo.getDays();
-      // TODO - the number of days remaining to the next anniversary of 'date' (e.g. if tomorrow, return 1)
+//      if (date.isLeapYear()) {
+//        result += 1;
+//      }
+      return result;
     }
+        // TODO - the number of days remaining to the next anniversary of 'date' (e.g. if tomorrow, return 1)
 
     public static void main(String[] args) {
       new BirthdayWithLocalDate().run();

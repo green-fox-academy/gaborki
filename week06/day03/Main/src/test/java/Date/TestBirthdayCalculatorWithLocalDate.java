@@ -10,7 +10,7 @@ package Date;
 
 public class TestBirthdayCalculatorWithLocalDate {
 
-  private static final String EXPECTED_DATE_STR = "2016-11-30";
+  private static final String EXPECTED_DATE_STR = "2015-11-30";
   private static final LocalDate EXPECTED_DATE = LocalDate.parse(EXPECTED_DATE_STR, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 
   private BirthdayCalculator<LocalDate> birthdayCalculator = new BirthdayWithLocalDate();
