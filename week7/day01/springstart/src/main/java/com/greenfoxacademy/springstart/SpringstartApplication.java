@@ -15,7 +15,7 @@ public class SpringstartApplication {
 	}
 
 	@ResponseBody
-	@RequestMapping("/hello")
+	@RequestMapping("/")
 	public String hello(){
 		return "Hello World!";
 	}
