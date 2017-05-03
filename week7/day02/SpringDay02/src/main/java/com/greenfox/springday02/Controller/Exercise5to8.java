@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Created by Gabor on 03/05/2017.
  */
 @Controller
-public class Exercise5 {
+public class Exercise5to8 {
 
   List<BankAccount> accounts = new ArrayList<>();
   String[] names = {"Csita", "Maugli", "Bagira", "Sher Khaan"};
