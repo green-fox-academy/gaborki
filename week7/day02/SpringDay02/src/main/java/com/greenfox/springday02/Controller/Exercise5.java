@@ -18,13 +18,14 @@ public class Exercise5 {
   int[] balances = {167, 4000, 2288, 303405};
   String[] animalTypes = {"Monkey", "Human", "Panther", "Tiger"};
 
+
   @RequestMapping("/exercise5")
   public String ex5(Model model) {
     for (int i = 0; i < names.length; i++) {
-      accounts.add(new BankAccount(names[i], balances[i], animalTypes[i]));
+      accounts.add(new BankAccount(names[i], balances[i], animalTypes[i], true));
     }
+    accounts.get(2).setKing(false);
     model.addAttribute("accountList", accounts);
     return "exercise5and6";
-
   }
 }
