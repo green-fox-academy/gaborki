@@ -6,14 +6,20 @@
 </head>
 <body>
 <tbody>
-<div th:each="a : ${accountList}">
+<div th:each="a, iterStat : ${accountList}" th:with="index=${iterStat.index}">
   <div th:text="'Accountholder: ' + ${a.name}" th:style="${a.isKing()} ? 'color: gold; fontstyle: bold'"/>
-  <div th:text="'Balance: ' + ${#numbers.formatDecimal(a.balance,0,2)}"/>
+  <div th:text="'Balance: ' + ${#numbers.formatDecimal(a.balance,0,2)} + ' Zebras'"/>
   <div th:text="'Type: ' + ${a.animalType}"/>
-  <div th:text="'IDnumber: ' + ${aStat.count}"/>
+  <div th:text="'IDnumber: ' + ${index}"/>
   <div th:switch="${a.isGoodGuy()}">
     <div th:case="true" th:text="'Good guy'"/>
     <div th:case="false" th:text="'Bad guy'"/>
+  </div>
+  <div>
+    <form action="/showMeTheZebras">
+      <input type="hidden" name="index" th:value="${index}"/>
+      <input type="submit" value="add 10 Zebras"/>
+  </form>
   </div>
   <br/>
 </div>

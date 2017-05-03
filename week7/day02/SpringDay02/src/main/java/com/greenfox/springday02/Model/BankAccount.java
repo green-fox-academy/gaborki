@@ -17,4 +17,8 @@ public class BankAccount {
   private String animalType;
   private boolean king;
   private boolean goodGuy;
+
+  public void incrementBalanceBy10(){
+    this.balance += 10;
+  }
 }
