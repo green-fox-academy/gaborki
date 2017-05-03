@@ -22,10 +22,14 @@ public class Exercise5 {
   @RequestMapping("/exercise5")
   public String ex5(Model model) {
     for (int i = 0; i < names.length; i++) {
-      accounts.add(new BankAccount(names[i], balances[i], animalTypes[i], true));
+      boolean goodBad = (Math.random()*2) > 1;
+      System.out.println(goodBad);
+      boolean king = (Math.random()*2) > 1;
+      System.out.println(king);
+      accounts.add(new BankAccount(names[i], balances[i], animalTypes[i], king, goodBad));
+
     }
-    accounts.get(2).setKing(false);
     model.addAttribute("accountList", accounts);
-    return "exercise5and6";
+    return "exercise5to8";
   }
 }

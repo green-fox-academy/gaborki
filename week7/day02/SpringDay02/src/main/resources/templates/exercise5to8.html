@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title>List of Accounts</title>
+</head>
+<body>
+  <tbody>
+    <div th:each="a : ${accountList}">
+        <div th:text="'Accountholder: ' + ${a.name}" th:style="${a.isKing()} ? 'color: gold; fontstyle: bold'"/>
+        <div th:text="'Balance: ' + ${#numbers.formatDecimal(a.balance,0,2)}"/>
+        <div th:text="'Type: ' + ${a.animalType}"/>
+        <div th:text="'IDnumber: ' + ${aStat.count}"/>
+        <div th:text="${a.isGoodGuy()} ? 'Good guy' : 'Bad guy'"/>
+      <br/>
+    </div>
+  </tbody>
+</body>
+</html>
