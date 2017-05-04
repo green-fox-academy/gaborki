@@ -8,9 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-/**
- * Created by Gabor on 03/05/2017.
- */
 @Controller
 public class Exercise9to10 {
 
