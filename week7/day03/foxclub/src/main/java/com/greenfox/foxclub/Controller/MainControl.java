@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
  */
 
 @Controller
-public class FoxControl {
+public class MainControl {
 
   @Autowired
   ModelAndView m;
