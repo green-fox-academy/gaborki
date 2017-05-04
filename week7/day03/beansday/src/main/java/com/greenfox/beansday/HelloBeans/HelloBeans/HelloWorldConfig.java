@@ -1,4 +1,4 @@
-package com.greenfox.beansday;
+package com.greenfox.beansday.HelloBeans.HelloBeans;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

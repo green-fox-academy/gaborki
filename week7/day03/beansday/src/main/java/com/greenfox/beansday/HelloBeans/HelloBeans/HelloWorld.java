@@ -1,4 +1,4 @@
-package com.greenfox.beansday;
+package com.greenfox.beansday.HelloBeans.HelloBeans;
 
 
 public class HelloWorld {
