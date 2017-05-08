@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title>Nutrition Store</title>
+</head>
+<body>
+<ul>
+  <li><a th:href="@{/info}" th:text="'Information'"></a></li>
+  <li><a th:href="@{/nutritionStore}" th:text="'Nutrition Store'"></a></li>
+  <li><a th:href="@{/tricks}" th:text="'Trick Centre'"></a></li>
+</ul>
+<img th:src="@{/greenfox.png}"/>
+<form action="/addNutri">
+  <p>Add nutrition: </p>
+  <td>
+    <input type="text" name="drinkToAdd" th:value="|Give me some food!|"/>
+    <input type="text" name="foodToAdd" th:value="|Give me some drink!|"/>
+  </td>
+  <td><input type="submit" value="Add nutris!"/></td>
+</form>
+</body>
+</html>

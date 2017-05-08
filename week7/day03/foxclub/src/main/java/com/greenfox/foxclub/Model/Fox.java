@@ -1,31 +1,35 @@
 package com.greenfox.foxclub.Model;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import lombok.Getter;
+import lombok.Setter;
 import org.springframework.stereotype.Component;
 
-@Getter
+
 @Component
+@Getter
+@Setter
 public class Fox {
 
-  Name name;
-  ArrayList<Tricks> tricks;
-  Food food;
-  Drink drink;
+  private String name;
+  private String food;
+  private String drink;
+  private ArrayList<Trick> learnedList;
 
-  public void setName(Name name) {
-    this.name = name;
+  public Fox() {
+    this.name = "Foxi";
+    this.food = "nothing";
+    this.drink = "nothing";
+    this.learnedList = new ArrayList<>();
   }
 
-  public void setTricks(ArrayList<Tricks> tricks) {
-    this.tricks = tricks;
+  public void learnTricks(Trick trick) {
+    learnedList.add(trick);
   }
 
-  public void setFood(Food food) {
-    this.food = food;
-  }
-
-  public void setDrink(Drink drink) {
-    this.drink = drink;
+  public boolean isTrickLearned(Trick trick){
+    return learnedList.contains(trick);
   }
 }
