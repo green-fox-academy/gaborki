@@ -28,6 +28,10 @@ public class MainControl {
     m.addObject(fox);
     m.addObject(Lista);
     Lista.fillList();
+    for (Trick t : Lista.getTrickList()){
+      System.out.println(t.toString());
+    }
+    System.out.println();
     m.setViewName("index");
     return m;
   }

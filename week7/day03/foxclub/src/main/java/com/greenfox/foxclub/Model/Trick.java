@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class Trick {
 
   private String name;
-  private Boolean isLearned;
+  private boolean isLearned;
 
   public Trick(){
     this.name = "";

@@ -4,9 +4,10 @@
   <title>Getting Started: Serving Web Content</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <title>Todo List</title>
+  <style type="text/css"/>
 </head>
 <body>
-  <table style="undefined;table-layout: fixed; width: 793px">
+  <table border="1px solid black">
     <tr>
       <th> ID </th>
       <th> ACTION </th>
@@ -16,10 +17,8 @@
     <tr data-th-each="todo : ${todos}">
       <td data-th-text="${todo.ID}"/>
       <td data-th-text="${todo.title}"/>
-      <td th:if="${todo.isDone} == false" th:text="|notdone|"/>
-      <td th:if="${todo.isDone} == true" th:text="|done|"/>
-      <td th:if="${todo.isUrgent} == false" th:text="|noturgent|"/>
-      <td th:if="${todo.isUrgent} == true" th:text="|urgent|"/>
+      <td data-th-text="${todo.isDone()}"/>
+      <td data-th-text="${todo.isUrgent()}"/>
     </tr>
   </table>
 </body>

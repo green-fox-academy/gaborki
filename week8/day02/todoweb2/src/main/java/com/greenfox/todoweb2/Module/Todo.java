@@ -7,9 +7,6 @@ import javax.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
-/**
- * Created by Gabor on 08/05/2017.
- */
 @Entity
 @Getter
 @Setter
@@ -17,13 +14,21 @@ public class Todo {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private int ID;
+  private long ID;
 
   private String title;
   private boolean isUrgent = false;
   private boolean isDone = false;
 
   public Todo(){
+  }
+
+  public boolean isUrgent() {
+    return isUrgent;
+  }
+
+  public boolean isDone() {
+    return isDone;
   }
 
   public Todo(String name){

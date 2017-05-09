@@ -25,4 +25,5 @@ public class TrickList {
       this.trickList.add(new Trick(t));
     }
   }
+
 }

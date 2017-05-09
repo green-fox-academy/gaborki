@@ -17,11 +17,11 @@
       <select name="trick">
         <option th:each="trik : ${Lista.trickList}"
                 th:value="${trik.name}"
-                th:text="${trik.getName()}">
+                th:text="${trik.name}">
         </option>
       </select>
     </td>
-    <td><input type="submit" value="Learn this trick!"/></td>
+    <input type="submit" value="Learn this trick!"/>
 </form>
 </body>
 </html>
