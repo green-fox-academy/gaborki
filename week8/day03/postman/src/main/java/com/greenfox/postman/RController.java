@@ -1,6 +1,7 @@
 package com.greenfox.postman;
 
 import com.greenfox.postman.Module.*;
+import com.greenfox.postman.Repository.LogRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
@@ -25,6 +26,8 @@ public class RController {
   Appenda appenda;
   @Autowired
   DoUntil doUntil;
+  @Autowired
+  LogRepo logRepo;
 
   @ExceptionHandler(MissingServletRequestParameterException.class)
   public ErrorHand ErrHandler(MissingServletRequestParameterException e) {
