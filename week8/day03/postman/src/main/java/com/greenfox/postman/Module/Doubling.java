@@ -5,9 +5,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Doubling {
-  int received;
-  int result;
-  String error;
+  private int received;
+  private int result;
+  private String error;
 
   public String getError() {
     return error;

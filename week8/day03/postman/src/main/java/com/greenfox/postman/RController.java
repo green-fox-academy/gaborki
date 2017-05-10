@@ -1,6 +1,7 @@
 package com.greenfox.postman;
 
 import com.greenfox.postman.Module.Doubling;
+import com.greenfox.postman.Module.ErrorHand;
 import com.greenfox.postman.Module.Greeter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.MissingServletRequestParameterException;
@@ -14,11 +15,15 @@ public class RController {
 
   @Autowired
   Doubling dublo;
+  @Autowired
+  Greeter greeter;
+  @Autowired
+  ErrorHand errors;
 
   @ExceptionHandler(MissingServletRequestParameterException.class)
-  public Doubling exHandler(){
-    dublo.setError("Please provide an input!");
-    return dublo;
+  public ErrorHand ErrHandler(MissingServletRequestParameterException e){
+      errors.setError("Please provide a " + e.getParameterName() + "!");
+    return errors;
   }
 
   @GetMapping("/doubling")
@@ -29,8 +34,9 @@ public class RController {
   }
 
   @GetMapping("/greeter")
-  public Greeter greet
-
+  public Greeter greet(@RequestParam() String name, @RequestParam String title){
+    greeter.setWelcome_message("Oh, hi there " + name + ", my dear " + title + "!");
+    return greeter;
   }
 
 }
