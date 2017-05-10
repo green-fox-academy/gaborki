@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
   <title>Getting Started: Serving Web Content</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -7,6 +7,12 @@
   <style type="text/css"/>
 </head>
 <body>
+<form action="/todos/add" method="post" th:object="${newtodo}">
+  <input type="text" th:field="*{title}"/>
+  <input type="submit" th:value="Add"/>
+  <br/>
+  <!--<input type="checkbox" th:field="*{setUrgent(true)}" th:value="*{isUrgent()}"> Is it urgent? </input>-->
+</form>
 <table border="1px solid black">
   <tr>
     <th> ID </th>

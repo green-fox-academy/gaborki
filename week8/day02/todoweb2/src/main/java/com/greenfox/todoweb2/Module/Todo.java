@@ -31,6 +31,14 @@ public class Todo {
     return isDone;
   }
 
+  public void setUrgent(boolean urgent) {
+    isUrgent = urgent;
+  }
+
+  public void setDone(boolean done) {
+    isDone = done;
+  }
+
   public Todo(String name){
     this.title = name;
   }
