@@ -31,7 +31,11 @@ public class RController {
 
   @ExceptionHandler(MissingServletRequestParameterException.class)
   public ErrorHand ErrHandler(MissingServletRequestParameterException e) {
-    errors.setError("Please provide a " + e.getParameterName() + "!");
+    if (e.getParameterName().equals("input")){
+      errors.setError("Please provide an " + e.getParameterName() + "!");
+    }else {
+      errors.setError("Please provide a " + e.getParameterName() + "!");
+    }
     return errors;
   }
 
@@ -45,18 +49,21 @@ public class RController {
   public Doubling doubling(@RequestParam() int input) {
     dublo.setReceived(input);
     dublo.setResult(input * 2);
+    logRepo.save(new Log("/doubling", dublo));
     return dublo;
   }
 
   @GetMapping("/greeter")
   public Greeter greet(@RequestParam() String name, @RequestParam String title) {
     greeter.setWelcome_message("Oh, hi there " + name + ", my dear " + title + "!");
+    logRepo.save(new Log("/greeter", greeter));
     return greeter;
   }
 
   @GetMapping("/appenda/{appendable}")
   public Appenda appenda(@PathVariable String appendable) {
     appenda.setAppended(appendable + "a");
+    logRepo.save(new Log("/appenda/" + appendable, appenda));
     return appenda;
   }
 
@@ -74,12 +81,14 @@ public class RController {
       }
     }
     doUntil.setResult(result);
+    logRepo.save(new Log("/dountil/" + obj, doUntil));
     return doUntil;
   }
 
   @PostMapping("/array")
   public ArrayHandler handleIt(@RequestBody ArrayHandlerInfo obj) {
     ArrayHandler arrayHandler = new ArrayHandler(obj.getWhat(), obj.getNumbers());
+    logRepo.save(new Log("/array", arrayHandler));
     return arrayHandler;
   }
 }
