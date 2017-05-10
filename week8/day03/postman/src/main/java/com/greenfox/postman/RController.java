@@ -25,8 +25,6 @@ public class RController {
   Appenda appenda;
   @Autowired
   DoUntil doUntil;
-  @Autowired
-  ArrayHandler arrayHandler;
 
   @ExceptionHandler(MissingServletRequestParameterException.class)
   public ErrorHand ErrHandler(MissingServletRequestParameterException e) {
@@ -35,7 +33,7 @@ public class RController {
   }
 
   @ExceptionHandler(HttpMessageNotReadableException.class)
-  public ErrorHand ErrHandler2(HttpMessageNotReadableException e){
+  public ErrorHand ErrHandler2(HttpMessageNotReadableException e) {
     errors.setError("Please provide a number!");
     return errors;
   }
@@ -68,7 +66,7 @@ public class RController {
       }
     } else if (obj.equals("factor")) {
       result = 1;
-      for (int i = 1; i <= until.getUntil(); i++){
+      for (int i = 1; i <= until.getUntil(); i++) {
         result *= i;
       }
     }
@@ -77,24 +75,8 @@ public class RController {
   }
 
   @PostMapping("/array")
-  public ArrayHandler handleIt(@RequestBody ArrayHandlerInfo obj){
-    int result = 0;
-    if (obj.getWhat().equals("sum")){
-      for (int i = 0; i < obj.length(); i++){
-        result += obj.get(i);
-      }
-    } else if (obj.getWhat().equals("multiply")){
-      result = 1;
-      for (int i = 0; i < obj.length(); i++){
-        result *= obj.get(i);
-      }
-//    } else if (obj.equals("double")){
-//      for (int i = 0; i < numbers.length(); i++){
-//
-//      }
-    }
-    arrayHandler.setResult(result);
+  public ArrayHandler handleIt(@RequestBody ArrayHandlerInfo obj) {
+    ArrayHandler arrayHandler = new ArrayHandler(obj.getWhat(), obj.getNumbers());
     return arrayHandler;
   }
-
 }
