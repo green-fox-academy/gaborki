@@ -1,11 +1,6 @@
 package com.greenfox.postman;
 
-import com.greenfox.postman.Module.Appenda;
-import com.greenfox.postman.Module.DoUntil;
-import com.greenfox.postman.Module.Doubling;
-import com.greenfox.postman.Module.ErrorHand;
-import com.greenfox.postman.Module.Greeter;
-import com.greenfox.postman.Module.Until;
+import com.greenfox.postman.Module.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
@@ -30,6 +25,8 @@ public class RController {
   Appenda appenda;
   @Autowired
   DoUntil doUntil;
+  @Autowired
+  ArrayHandler arrayHandler;
 
   @ExceptionHandler(MissingServletRequestParameterException.class)
   public ErrorHand ErrHandler(MissingServletRequestParameterException e) {
@@ -62,14 +59,14 @@ public class RController {
     return appenda;
   }
 
-  @PostMapping("/dountil/{what}")
-  public DoUntil doItUntil(@PathVariable String what, @RequestBody Until until) {
+  @PostMapping("/dountil/{obj}")
+  public DoUntil doItUntil(@PathVariable String obj, @RequestBody Until until) {
     int result = 0;
-    if (what.equals("sum")) {
+    if (obj.equals("sum")) {
       for (int i = 0; i <= until.getUntil(); i++) {
         result += i;
       }
-    } else if (what.equals("factor")) {
+    } else if (obj.equals("factor")) {
       result = 1;
       for (int i = 1; i <= until.getUntil(); i++){
         result *= i;
@@ -78,4 +75,26 @@ public class RController {
     doUntil.setResult(result);
     return doUntil;
   }
+
+  @PostMapping("/array")
+  public ArrayHandler handleIt(@RequestBody ArrayHandlerInfo obj){
+    int result = 0;
+    if (obj.getWhat().equals("sum")){
+      for (int i = 0; i < obj.length(); i++){
+        result += obj.get(i);
+      }
+    } else if (obj.getWhat().equals("multiply")){
+      result = 1;
+      for (int i = 0; i < obj.length(); i++){
+        result *= obj.get(i);
+      }
+//    } else if (obj.equals("double")){
+//      for (int i = 0; i < numbers.length(); i++){
+//
+//      }
+    }
+    arrayHandler.setResult(result);
+    return arrayHandler;
+  }
+
 }
