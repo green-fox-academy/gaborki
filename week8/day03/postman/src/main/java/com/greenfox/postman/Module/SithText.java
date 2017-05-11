@@ -1,0 +1,17 @@
+package com.greenfox.postman.Module;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class SithText {
+
+  private String sith_text;
+
+  public String getSith_text() {
+    return sith_text;
+  }
+
+  public void setSith_text(String sith_text) {
+    this.sith_text = sith_text;
+  }
+}

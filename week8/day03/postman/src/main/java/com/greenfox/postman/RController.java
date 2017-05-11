@@ -16,18 +16,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RController {
 
+  @Autowired Doubling dublo;
+  @Autowired Greeter greeter;
+  @Autowired ErrorHand errors;
+  @Autowired Appenda appenda;
+  @Autowired DoUntil doUntil;
+  @Autowired LogRepo logRepo;
   @Autowired
-  Doubling dublo;
-  @Autowired
-  Greeter greeter;
-  @Autowired
-  ErrorHand errors;
-  @Autowired
-  Appenda appenda;
-  @Autowired
-  DoUntil doUntil;
-  @Autowired
-  LogRepo logRepo;
+  SithText sithText;
 
   @ExceptionHandler(MissingServletRequestParameterException.class)
   public ErrorHand ErrHandler(MissingServletRequestParameterException e) {
@@ -71,7 +67,7 @@ public class RController {
   public DoUntil doItUntil(@PathVariable String obj, @RequestBody Until until) {
     int result = 0;
     if (obj.equals("sum")) {
-      for (int i = 0; i <= until.getUntil(); i++) {
+      for (int i = 1; i <= until.getUntil(); i++) {
         result += i;
       }
     } else if (obj.equals("factor")) {
@@ -90,5 +86,11 @@ public class RController {
     ArrayHandler arrayHandler = new ArrayHandler(obj.getWhat(), obj.getNumbers());
     logRepo.save(new Log("/array", arrayHandler));
     return arrayHandler;
+  }
+
+  @PostMapping("/sith")
+  public SithText sith(@RequestBody SithTextCreator text) {
+    sithText.setSith_text(text.convertToString(text.splitAndSithText()));
+    return sithText;
   }
 }
