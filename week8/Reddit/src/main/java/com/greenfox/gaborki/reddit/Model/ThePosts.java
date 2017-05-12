@@ -1,7 +1,5 @@
 package com.greenfox.gaborki.reddit.Model;
 
-import java.util.Iterator;
-import java.util.List;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -27,13 +27,6 @@ public class Post {
     this.score = 0;
   }
 
-  public Post(String title, String href) {
-    this.title = title;
-    this.href = href;
-    this.timestamp = new Timestamp(System.currentTimeMillis() / 1000);
-    this.score = 0;
-  }
-
   public void changeScore(){
     //TODO
   }
