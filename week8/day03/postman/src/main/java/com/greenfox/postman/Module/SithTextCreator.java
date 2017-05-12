@@ -19,7 +19,7 @@ public class SithTextCreator {
 
   public ArrayList<String> splitAndSithText() {
 //    ArrayList<String> sentences = new ArrayList<>(Arrays.asList(text.split(".")));
-      ArrayList<String> sithList = new ArrayList<>();
+    ArrayList<String> sithList = new ArrayList<>();
 //    for (String sentence : sentences) {
       ArrayList<String> words = new ArrayList<>(Arrays.asList(text.split(" ")));
       if (words.size() % 2 == 0) {
@@ -34,8 +34,8 @@ public class SithTextCreator {
         }
 //        sithList.add(words.get(words.size() - 1));
       }
-    return sithList;
-  }
+      return sithList;
+    }
 
   public String randomWordCreator() {
     ArrayList<String> random = new ArrayList<>(

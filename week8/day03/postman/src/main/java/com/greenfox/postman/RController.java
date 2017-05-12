@@ -32,12 +32,15 @@ public class RController {
     }else {
       errors.setError("Please provide a " + e.getParameterName() + "!");
     }
+    logRepo.save(new Log("/error", errors));
+
     return errors;
   }
 
   @ExceptionHandler(HttpMessageNotReadableException.class)
   public ErrorHand ErrHandler2(HttpMessageNotReadableException e) {
     errors.setError("Please provide a number!");
+    logRepo.save(new Log("/error", errors));
     return errors;
   }
 
