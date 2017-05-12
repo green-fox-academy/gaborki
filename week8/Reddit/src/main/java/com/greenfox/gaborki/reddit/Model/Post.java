@@ -7,18 +7,25 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import lombok.NoArgsConstructor;
 
 @Entity
 public class Post {
 
-
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private int id;
+  private long id;
   private String title;
   private String href;
   private Timestamp timestamp;
   private int score;
+
+  public Post(){
+    this.title = "no title";
+    this.href = "no link";
+    this.timestamp = new Timestamp(System.currentTimeMillis() / 1000);
+    this.score = 0;
+  }
 
   public Post(String title, String href) {
     this.title = title;
@@ -31,11 +38,11 @@ public class Post {
     //TODO
   }
 
-  public int getId() {
+  public long getId() {
     return id;
   }
 
-  public void setId(int id) {
+  public void setId(long id) {
     this.id = id;
   }
 

@@ -1,20 +1,19 @@
 package com.greenfox.gaborki.reddit.Model;
 
+import java.util.Iterator;
 import java.util.List;
-import java.util.Objects;
-import javax.persistence.Entity;
 import org.springframework.stereotype.Component;
 
-@Entity
+@Component
 public class ThePosts {
 
-  List<Objects> posts;
+  Iterable<Post> posts;
 
-  public List<Objects> getPosts() {
+  public Iterable<Post> getPosts() {
     return posts;
   }
 
-  public void setPosts(List<Objects> posts) {
+  public void setPosts(Iterable<Post> posts) {
     this.posts = posts;
   }
 }
