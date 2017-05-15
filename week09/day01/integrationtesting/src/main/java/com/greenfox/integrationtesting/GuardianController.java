@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +15,8 @@ public class GuardianController {
 
   @Autowired
   Cargo cargo;
+  @Autowired
+  Drax drax;
 
   @ExceptionHandler(MissingServletRequestParameterException.class)
   @ResponseStatus(HttpStatus.BAD_REQUEST)
@@ -26,24 +29,40 @@ public class GuardianController {
   }
 
   @GetMapping("/groot")
-  public Groot grootMessage(@RequestParam String message){
+  public Groot grootMessage(@RequestParam String message) {
     return new Groot(message);
   }
 
   @GetMapping("/yondu")
-  public Yondu calculateSpeed(@RequestParam float distance, @RequestParam float time){
+  public Yondu calculateSpeed(@RequestParam float distance, @RequestParam float time) {
     return new Yondu(distance, time);
   }
 
   @GetMapping("/rocket")
-  public Cargo getCargoStatus(){
+  public Cargo getCargoStatus() {
     return cargo;
   }
 
   @GetMapping("/rocket/fill")
-  public FillCargo fillWithRockets(@RequestParam String caliber, @RequestParam int amount){
+  public FillCargo fillWithRockets(@RequestParam String caliber, @RequestParam int amount) {
     cargo.fillWithAmmo(caliber, amount);
     cargo.setAmountandStatus();
     return new FillCargo(caliber, amount, cargo.getShipstatus(), cargo.isReady());
+  }
+
+  @GetMapping("/drax")
+  public Drax listCalories() {
+    return drax;
+  }
+
+  @GetMapping("/drax/add")
+  public Drax addFood(@RequestParam String foodName, @RequestParam int calories) {
+    DraxFood food = new DraxFood(foodName, calories);
+    if (!drax.isListContaindItem(food)) {
+      drax.getFoodList().add(food);
+    } else {
+      drax.getIndexOfItemAndIncrease(food);
+    }
+    return drax;
   }
 }
