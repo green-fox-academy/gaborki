@@ -3,7 +3,7 @@ package com.greenfox.gaborki.reddit.Model;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ThePosts {
+public class PostList {
 
   Iterable<Post> posts;
 

@@ -2,12 +2,10 @@ package com.greenfox.gaborki.reddit.Model;
 
 
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import lombok.NoArgsConstructor;
 
 @Entity
 public class Post {
@@ -19,16 +17,25 @@ public class Post {
   private String href;
   private Timestamp timestamp;
   private int score;
+  private String owner;
 
   public Post(){
     this.title = "no title";
     this.href = "no link";
-    this.timestamp = new Timestamp(System.currentTimeMillis() / 1000);
+    this.timestamp = new Timestamp(System.currentTimeMillis());
     this.score = 0;
   }
 
   public void changeScore(){
     //TODO
+  }
+
+  public String getOwner() {
+    return owner;
+  }
+
+  public void setOwner(String owner) {
+    this.owner = owner;
   }
 
   public long getId() {
