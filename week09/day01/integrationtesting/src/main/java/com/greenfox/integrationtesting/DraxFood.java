@@ -1,20 +1,24 @@
 package com.greenfox.integrationtesting;
 
-
 public class DraxFood {
 
   private String nameOfFood;
   private int calories;
-  private int amount = 1;
+  private int amount;
 
-  public DraxFood(String nameOfFood, int calories) {
+  public DraxFood(String nameOfFood, int amount, int calories) {
     this.nameOfFood = nameOfFood;
-    this.calories = calories;
+    this.amount = amount;
+    this.calories = calories * amount;
   }
 
-  public void changeAmountAndCalories(int calories) {
-    this.setAmount(this.getAmount() + 1);
-    this.setCalories(this.getCalories() + calories);
+  public void addToAmountAndCalories(int index, int amount, int calories) {
+    if (this.getCalories() != 0){
+      this.setCalories(this.getCalories() + (this.getCalories()/this.getAmount())*amount);
+      this.setAmount(this.getAmount() + amount);
+    } else {
+      this.setCalories(amount * calories);
+    }
   }
 
   public String getNameOfFood() {
@@ -41,5 +45,3 @@ public class DraxFood {
     this.amount = amount;
   }
 }
-
-

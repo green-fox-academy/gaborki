@@ -5,7 +5,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -56,13 +55,15 @@ public class GuardianController {
   }
 
   @GetMapping("/drax/add")
-  public Drax addFood(@RequestParam String foodName, @RequestParam int calories) {
-    DraxFood food = new DraxFood(foodName, calories);
-    if (!drax.isListContaindItem(food)) {
-      drax.getFoodList().add(food);
-    } else {
-      drax.getIndexOfItemAndIncrease(food);
-    }
+  public Drax addFood(@RequestParam String foodName, @RequestParam int amount, @RequestParam int calories) {
+    DraxFood food = new DraxFood(foodName, amount, calories);
+    drax.addToFoodList(food);
+    return drax;
+  }
+
+  @GetMapping("/drax/remove")
+  public Drax removeFood(@RequestParam String foodName, @RequestParam int amount){
+    drax.removeItem(foodName, amount);
     return drax;
   }
 }
