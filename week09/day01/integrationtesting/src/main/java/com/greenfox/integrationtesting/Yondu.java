@@ -2,37 +2,37 @@ package com.greenfox.integrationtesting;
 
 public class Yondu {
 
-  private float distance;
-  private float time;
-  private float speed;
+  private double distance;
+  private double time;
+  private double speed;
 
-  public Yondu(float distance, float time) {
+  public Yondu(double distance, double time) {
     this.time = time;
     this.distance = distance;
     this.speed = distance/time;
   }
 
-  public float getDistance() {
+  public double getDistance() {
     return distance;
   }
 
-  public void setDistance(float distance) {
+  public void setDistance(double distance) {
     this.distance = distance;
   }
 
-  public float getTime() {
+  public double getTime() {
     return time;
   }
 
-  public void setTime(float time) {
+  public void setTime(double time) {
     this.time = time;
   }
 
-  public float getSpeed() {
+  public double getSpeed() {
     return speed;
   }
 
-  public void setSpeed(float speed) {
+  public void setSpeed(double speed) {
     this.speed = speed;
   }
 }

@@ -3,7 +3,7 @@ package com.greenfox.integrationtesting;
 /**
  * Created by Gabor on 15/05/2017.
  */
-public class YonduError {
+public class YonduError implements Error{
 
   private String error;
 

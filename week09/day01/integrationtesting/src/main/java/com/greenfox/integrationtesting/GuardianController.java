@@ -14,15 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class GuardianController {
 
   @ExceptionHandler(MissingServletRequestParameterException.class)
-  @ResponseStatus(HttpStatus.BAD_REQUEST)
-  public GrootError GrootErrorMessage(MissingServletRequestParameterException e){
-    return new GrootError("I am Groot");
-  }
-
-  @ExceptionHandler(MissingServletRequestParameterException.class)
-  @ResponseStatus(HttpStatus.BAD_REQUEST)
-  public YonduError YonduErrorMessage(MissingServletRequestParameterException e){
-    return new YonduError("Incorrect parameters given");
+  public Error GrootErrorMessage(MissingServletRequestParameterException e) {
+    if (e.getParameterName().equals("message")) {
+      return new GrootError("I am Groot");
+    } else {
+      return new YonduError("Incorrect parameters given");
+    }
   }
 
   @GetMapping("/groot")

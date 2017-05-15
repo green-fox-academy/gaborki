@@ -3,9 +3,9 @@ package com.greenfox.integrationtesting;
 /**
  * Created by Gabor on 15/05/2017.
  */
-public class GrootError {
+public class GrootError implements Error {
 
-  private  String error;
+  private String error;
 
   public GrootError(String message){
     this.error = message;
