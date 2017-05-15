@@ -1,13 +1,15 @@
 package com.greenfox.integrationtesting;
 
 
-import org.springframework.stereotype.Component;
-
-@Component
 public class Groot {
 
   private String received;
   private String translated;
+
+  public Groot(String message){
+    this.received = message;
+    this.translated = "I am Groot";
+  }
 
   public String getReceived() {
     return received;

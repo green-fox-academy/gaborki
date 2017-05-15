@@ -1,12 +1,15 @@
 package com.greenfox.integrationtesting;
 
+/**
+ * Created by Gabor on 15/05/2017.
+ */
+public class GrootError {
 
-import org.springframework.stereotype.Component;
+  private  String error;
 
-@Component
-public class Error {
-
-  private String error;
+  public GrootError(String message){
+    this.error = message;
+  }
 
   public String getError() {
     return error;
