@@ -73,7 +73,6 @@ public class Cargo {
 
   public void setAmountandStatus(){
     int totalCargoPercentage = ((this.caliber25 + this.caliber30 + this.caliber50) * 100) / 12500;
-    String status = new String();
     if (totalCargoPercentage > 0) {
       this.setShipstatus((totalCargoPercentage + "%"));
     } else if (totalCargoPercentage  == 100){

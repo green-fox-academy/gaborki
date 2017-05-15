@@ -80,4 +80,46 @@ public class GuardianControllerTest {
         .andExpect(jsonPath("$.error", is("Incorrect parameters given")));
   }
 
+  @Test
+  public void testEmptyCargo() throws Exception{
+    mockMvc.perform(get("/rocket"))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.caliber25", is(0)))
+        .andExpect(jsonPath("$.caliber30", is(0)))
+        .andExpect(jsonPath("$.caliber50", is(0)))
+        .andExpect(jsonPath("$.shipstatus", is("empty")))
+        .andExpect(jsonPath("$.ready", is(false)));
+  }
+
+  @Test
+  public void testFillCargoWithParameters() throws Exception{
+    mockMvc.perform(get("/rocket/fill")
+        .param("caliber", ".30")
+        .param("amount", "3000"))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.received", is(".30")))
+        .andExpect(jsonPath("$.amount", is(3000)))
+        .andExpect(jsonPath("$.shipstatus", is("24%")))
+        .andExpect(jsonPath("$.ready", is(false)));
+  }
+
+  @Test
+  public void testCargoWithSomeRockets() throws Exception{
+    mockMvc.perform(get("/rocket"))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.caliber25", is(0)))
+        .andExpect(jsonPath("$.caliber30", is(3000)))
+        .andExpect(jsonPath("$.caliber50", is(0)))
+        .andExpect(jsonPath("$.shipstatus", is("24%")))
+        .andExpect(jsonPath("$.ready", is(false)));
+  }
+
+  @Test
+  public void testFillCargoWithNoParameters() throws Exception{
+    mockMvc.perform(get("/rocket/fill")
+        .param("caliber", ".25"))
+        .andExpect(status().isBadRequest())
+        .andExpect(jsonPath("$.error", is("Incorrect parameters given")));
+  }
+
 }
