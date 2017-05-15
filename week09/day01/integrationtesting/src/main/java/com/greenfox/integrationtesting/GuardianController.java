@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class GuardianController {
 
   @ExceptionHandler(MissingServletRequestParameterException.class)
+  @ResponseStatus(HttpStatus.BAD_REQUEST)
   public Error GrootErrorMessage(MissingServletRequestParameterException e) {
     if (e.getParameterName().equals("message")) {
       return new GrootError("I am Groot");

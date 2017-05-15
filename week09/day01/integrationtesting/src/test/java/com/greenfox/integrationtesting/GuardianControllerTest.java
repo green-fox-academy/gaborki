@@ -49,7 +49,7 @@ public class GuardianControllerTest {
   @Test
   public void testGrootWithNoInputMessage() throws Exception{
     mockMvc.perform(get("/groot"))
-        .andExpect(status().isOk())
+        .andExpect(status().isBadRequest())
         .andExpect(jsonPath("$.error", is("I am Groot")));
   }
 
@@ -64,7 +64,9 @@ public class GuardianControllerTest {
 
   @Test
   public void testYonduWithParameters() throws  Exception{
-    mockMvc.perform(((get("/yondu?distance=10.0&time=10.0"))))
+    mockMvc.perform(get("/yondu")
+        .param("distance", "10.0")
+        .param("time", "10.0"))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.distance", is(10.0)))
         .andExpect(jsonPath("$.time", is(10.0)))
@@ -74,7 +76,7 @@ public class GuardianControllerTest {
   @Test
   public void testYonduWithMissingParameter() throws Exception{
     mockMvc.perform(get("/yondu"))
-        .andExpect(status().isOk())
+        .andExpect(status().isBadRequest())
         .andExpect(jsonPath("$.error", is("Incorrect parameters given")));
   }
 
