@@ -1,7 +1,7 @@
 package com.greenfox.practise.module;
 
 
-import java.time.LocalDateTime;
+import java.lang.String;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,17 +14,25 @@ public class Meal {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private long ID;
 
-  private LocalDateTime date;
-  private String typeOfmeal;
+  private String date;
+  private String type;
   private String description;
   private int calories;
 
   public Meal() {
   }
 
-  public Meal(LocalDateTime date, String typeOfmeal, String description, int calories) {
+  public Meal(String date, String type, String description, int calories) {
     this.date = date;
-    this.typeOfmeal = typeOfmeal;
+    this.type = type;
+    this.description = description;
+    this.calories = calories;
+  }
+
+  public Meal(long id, String date, String type, String description, int calories) {
+    this.ID = id;
+    this.date = date;
+    this.type = type;
     this.description = description;
     this.calories = calories;
   }
@@ -37,20 +45,20 @@ public class Meal {
     this.ID = ID;
   }
 
-  public LocalDateTime getDate() {
+  public String getDate() {
     return date;
   }
 
-  public void setDate(LocalDateTime date) {
+  public void setDate(String date) {
     this.date = date;
   }
 
-  public String getTypeOfmeal() {
-    return typeOfmeal;
+  public String getType() {
+    return type;
   }
 
-  public void setTypeOfmeal(String typeOfmeal) {
-    this.typeOfmeal = typeOfmeal;
+  public void setType(String type) {
+    this.type = type;
   }
 
   public String getDescription() {
