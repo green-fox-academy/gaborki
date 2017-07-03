@@ -1,0 +1,6 @@
+/Users/Gabor/RiderProjects/Day1Workshop/Day1Workshop/bin/Debug/Day1Workshop.exe
+/Users/Gabor/RiderProjects/Day1Workshop/Day1Workshop/bin/Debug/Day1Workshop.pdb
+/Users/Gabor/RiderProjects/Day1Workshop/Day1Workshop/obj/Debug/Day1Workshop.csprojResolveAssemblyReference.cache
+/Users/Gabor/RiderProjects/Day1Workshop/Day1Workshop/obj/Debug/Day1Workshop.csproj.CoreCompileInputs.cache
+/Users/Gabor/RiderProjects/Day1Workshop/Day1Workshop/obj/Debug/Day1Workshop.exe
+/Users/Gabor/RiderProjects/Day1Workshop/Day1Workshop/obj/Debug/Day1Workshop.pdb
