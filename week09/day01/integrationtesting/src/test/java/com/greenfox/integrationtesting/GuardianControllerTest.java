@@ -119,7 +119,8 @@ public class GuardianControllerTest {
     mockMvc.perform(get("/rocket/fill")
         .param("caliber", ".25"))
         .andExpect(status().isBadRequest())
-        .andExpect(jsonPath("$.error", is("Incorrect parameters given")));
+        .andExpect(jsonPath("$.error", is("Incorrect parameters given")))
+        .andExpect()
   }
 
 }
